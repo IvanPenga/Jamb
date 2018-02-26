@@ -16,6 +16,8 @@ namespace Jamb
 
         public Value Value { get; set; }
         public Direction Direction { get; set; }
+        public bool Checked = false;
+        private static bool CallsEnabled = false;
 
         public Box()
         {
@@ -30,9 +32,26 @@ namespace Jamb
 
         private void Box_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
-            //this.Text = "asd";
-            UnlockNext();
+            if (CallsEnabled)
+            {
+                foreach (Box box in Boxes.Where(box => box.Direction == Direction.Call))
+                {
+                    box.Enabled = false;
+                }
+                this.Enabled = true;
+                CallsEnabled = false;
+            }
+            else
+            {
+                if (tempClosed.Count > 0)
+                {
+                    ReturnTempClosed();
+                }
+                this.Enabled = false;
+                Checked = true;
+                UnlockNext();
+            }
+
         }
 
         public void Unlock()
@@ -57,14 +76,41 @@ namespace Jamb
             }
         }
 
-        public void EnableCalls()
+        public static void ReturnTempClosed()
         {
+            foreach (Box box in Boxes.Where(box => box.Direction == Direction.Call))
+            {
+                box.Enabled = false;
+            }
+            foreach (Box box in tempClosed)
+            {
+                box.Enabled = true;
+            }
+            tempClosed.Clear();
+        }
 
+        public static List<Box> tempClosed = new List<Box>();
+
+        public static void EnableCalls()
+        {
+            foreach (Box box in Boxes)
+            {
+                if (box.Direction == Direction.Call && box.Checked == false)
+                {
+                    box.Enabled = true;
+                }
+                else if (box.Enabled == true)
+                {
+                    tempClosed.Add(box);
+                    box.Enabled = false;
+                }
+            }
+            CallsEnabled = true;
         }
 
         private void Box_MouseEnter(object sender, EventArgs e)
         {
-            if (this.Enabled)
+            if (this.Enabled && !CallsEnabled)
             {
                 this.Text = EvaluateBoxValue().ToString();
             }

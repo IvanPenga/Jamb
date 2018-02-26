@@ -19,8 +19,12 @@ namespace Jamb
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
-            Dice.RollUnlocked();
-             
+            Dice.RollUnlocked();             
+        }
+
+        private void btnCall_Click(object sender, EventArgs e)
+        {
+            Box.EnableCalls();
         }
     }
 }

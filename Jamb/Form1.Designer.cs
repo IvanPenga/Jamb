@@ -47,6 +47,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.btnCall = new System.Windows.Forms.Button();
             this.btnRoll = new System.Windows.Forms.Button();
+            this.lbRollsLeft = new System.Windows.Forms.Label();
             this.btnDiceFive = new Jamb.Dice();
             this.btnDiceFour = new Jamb.Dice();
             this.btnDiceThree = new Jamb.Dice();
@@ -104,7 +105,6 @@
             this.btnDownThree = new Jamb.Box();
             this.btnDownTwo = new Jamb.Box();
             this.btnDownOne = new Jamb.Box();
-            this.lbRollsLeft = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -268,6 +268,7 @@
             this.btnCall.TabIndex = 83;
             this.btnCall.Text = "Call";
             this.btnCall.UseVisualStyleBackColor = true;
+            this.btnCall.Click += new System.EventHandler(this.btnCall_Click);
             // 
             // btnRoll
             // 
@@ -278,6 +279,15 @@
             this.btnRoll.Text = "Roll";
             this.btnRoll.UseVisualStyleBackColor = true;
             this.btnRoll.Click += new System.EventHandler(this.btnRoll_Click);
+            // 
+            // lbRollsLeft
+            // 
+            this.lbRollsLeft.AutoSize = true;
+            this.lbRollsLeft.Location = new System.Drawing.Point(561, 282);
+            this.lbRollsLeft.Name = "lbRollsLeft";
+            this.lbRollsLeft.Size = new System.Drawing.Size(66, 17);
+            this.lbRollsLeft.TabIndex = 84;
+            this.lbRollsLeft.Text = "Rolls left:";
             // 
             // btnDiceFive
             // 
@@ -880,15 +890,6 @@
             this.btnDownOne.TabIndex = 0;
             this.btnDownOne.UseVisualStyleBackColor = true;
             this.btnDownOne.Value = Jamb.Value.One;
-            // 
-            // lbRollsLeft
-            // 
-            this.lbRollsLeft.AutoSize = true;
-            this.lbRollsLeft.Location = new System.Drawing.Point(561, 282);
-            this.lbRollsLeft.Name = "lbRollsLeft";
-            this.lbRollsLeft.Size = new System.Drawing.Size(66, 17);
-            this.lbRollsLeft.TabIndex = 84;
-            this.lbRollsLeft.Text = "Rolls left:";
             // 
             // Form1
             // 
