@@ -17,12 +17,25 @@ namespace Jamb
         public bool Locked { get; private set; }
         public static List<Dice> Dices = new List<Dice>();
         private static Random random = new Random();
-        public static int RollNumber { get; set; }
+
+        private static int rollNumber = 0;
+        public static int RollNumber
+        {
+            get { return rollNumber; }
+            set
+            {
+                rollNumber = value;
+                if (rollNumber >= 3)
+                {
+                    rollNumber = 0;
+                    UnlockAll();
+                }
+            }
+        }
 
         public Dice()
         {
             InitializeComponent();
-            RollNumber = 0;
             Dices.Add(this);
         }
 
@@ -35,6 +48,16 @@ namespace Jamb
         {
             this.Locked = this.Locked ? false : true;
             SetColor();           
+        }
+
+        public static void UnlockAll()
+        {
+            foreach (Dice dice in Dices)
+            {
+                dice.Enabled = true;
+                dice.Locked = false;
+                dice.SetColor();
+            }
         }
 
         public void SetColor()
@@ -53,7 +76,7 @@ namespace Jamb
             Lock();
         }
 
-        public static void RollUnlocked()
+        public static void RollAll()
         {
             foreach (Dice dice in Dice.Dices)
             {

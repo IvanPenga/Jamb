@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules.cs" />
     <EmbeddedResource Include="Box.resx">
       <DependentUpon>Box.cs</DependentUpon>
     </EmbeddedResource>

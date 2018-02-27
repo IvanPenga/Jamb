@@ -14,12 +14,15 @@ namespace Jamb
     {
         public Form1()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            Dice.RollAll();
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
-            Dice.RollUnlocked();             
+            btnCall.Enabled = Dice.RollNumber >= 1 ? false : true;
+            Dice.RollAll();
+            
         }
 
         private void btnCall_Click(object sender, EventArgs e)
