@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +49,19 @@
             this.btnCall = new System.Windows.Forms.Button();
             this.btnRoll = new System.Windows.Forms.Button();
             this.lbRollsLeft = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelSum9 = new Jamb.LabelSum();
+            this.labelSum10 = new Jamb.LabelSum();
+            this.labelSum11 = new Jamb.LabelSum();
+            this.labelSum12 = new Jamb.LabelSum();
+            this.labelSum5 = new Jamb.LabelSum();
+            this.labelSum6 = new Jamb.LabelSum();
+            this.labelSum7 = new Jamb.LabelSum();
+            this.labelSum8 = new Jamb.LabelSum();
+            this.labelSum4 = new Jamb.LabelSum();
+            this.labelSum3 = new Jamb.LabelSum();
+            this.labelSum2 = new Jamb.LabelSum();
+            this.labelSum1 = new Jamb.LabelSum();
             this.btnDiceFive = new Jamb.Dice();
             this.btnDiceFour = new Jamb.Dice();
             this.btnDiceThree = new Jamb.Dice();
@@ -182,7 +196,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 291);
+            this.label9.Location = new System.Drawing.Point(36, 311);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 17);
             this.label9.TabIndex = 64;
@@ -191,7 +205,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(35, 256);
+            this.label10.Location = new System.Drawing.Point(35, 276);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(33, 17);
             this.label10.TabIndex = 63;
@@ -218,7 +232,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(29, 466);
+            this.label16.Location = new System.Drawing.Point(28, 513);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(44, 17);
             this.label16.TabIndex = 69;
@@ -227,7 +241,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(29, 431);
+            this.label17.Location = new System.Drawing.Point(28, 478);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(45, 17);
             this.label17.TabIndex = 68;
@@ -236,7 +250,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(36, 396);
+            this.label18.Location = new System.Drawing.Point(35, 443);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(30, 17);
             this.label18.TabIndex = 67;
@@ -245,7 +259,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(23, 361);
+            this.label19.Location = new System.Drawing.Point(22, 408);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(57, 17);
             this.label19.TabIndex = 66;
@@ -254,7 +268,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(16, 326);
+            this.label20.Location = new System.Drawing.Point(15, 373);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(70, 17);
             this.label20.TabIndex = 65;
@@ -288,6 +302,155 @@
             this.lbRollsLeft.Size = new System.Drawing.Size(66, 17);
             this.lbRollsLeft.TabIndex = 84;
             this.lbRollsLeft.Text = "Rolls left:";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // labelSum9
+            // 
+            this.labelSum9.AutoSize = true;
+            this.labelSum9.Category = Jamb.Category.Hands;
+            this.labelSum9.Direction = Jamb.Direction.Call;
+            this.labelSum9.Location = new System.Drawing.Point(333, 539);
+            this.labelSum9.Name = "labelSum9";
+            this.labelSum9.Size = new System.Drawing.Size(16, 17);
+            this.labelSum9.TabIndex = 96;
+            this.labelSum9.Text = "0";
+            this.labelSum9.Value = 0;
+            // 
+            // labelSum10
+            // 
+            this.labelSum10.AutoSize = true;
+            this.labelSum10.Category = Jamb.Category.Hands;
+            this.labelSum10.Direction = Jamb.Direction.Free;
+            this.labelSum10.Location = new System.Drawing.Point(256, 539);
+            this.labelSum10.Name = "labelSum10";
+            this.labelSum10.Size = new System.Drawing.Size(16, 17);
+            this.labelSum10.TabIndex = 95;
+            this.labelSum10.Text = "0";
+            this.labelSum10.Value = 0;
+            // 
+            // labelSum11
+            // 
+            this.labelSum11.AutoSize = true;
+            this.labelSum11.Category = Jamb.Category.Hands;
+            this.labelSum11.Direction = Jamb.Direction.Up;
+            this.labelSum11.Location = new System.Drawing.Point(183, 539);
+            this.labelSum11.Name = "labelSum11";
+            this.labelSum11.Size = new System.Drawing.Size(16, 17);
+            this.labelSum11.TabIndex = 94;
+            this.labelSum11.Text = "0";
+            this.labelSum11.Value = 0;
+            // 
+            // labelSum12
+            // 
+            this.labelSum12.AutoSize = true;
+            this.labelSum12.Category = Jamb.Category.Hands;
+            this.labelSum12.Direction = Jamb.Direction.Down;
+            this.labelSum12.Location = new System.Drawing.Point(121, 539);
+            this.labelSum12.Name = "labelSum12";
+            this.labelSum12.Size = new System.Drawing.Size(16, 17);
+            this.labelSum12.TabIndex = 93;
+            this.labelSum12.Text = "0";
+            this.labelSum12.Value = 0;
+            // 
+            // labelSum5
+            // 
+            this.labelSum5.AutoSize = true;
+            this.labelSum5.Category = Jamb.Category.MinMax;
+            this.labelSum5.Direction = Jamb.Direction.Call;
+            this.labelSum5.Location = new System.Drawing.Point(333, 337);
+            this.labelSum5.Name = "labelSum5";
+            this.labelSum5.Size = new System.Drawing.Size(16, 17);
+            this.labelSum5.TabIndex = 92;
+            this.labelSum5.Text = "0";
+            this.labelSum5.Value = 0;
+            // 
+            // labelSum6
+            // 
+            this.labelSum6.AutoSize = true;
+            this.labelSum6.Category = Jamb.Category.MinMax;
+            this.labelSum6.Direction = Jamb.Direction.Free;
+            this.labelSum6.Location = new System.Drawing.Point(266, 337);
+            this.labelSum6.Name = "labelSum6";
+            this.labelSum6.Size = new System.Drawing.Size(16, 17);
+            this.labelSum6.TabIndex = 91;
+            this.labelSum6.Text = "0";
+            this.labelSum6.Value = 0;
+            // 
+            // labelSum7
+            // 
+            this.labelSum7.AutoSize = true;
+            this.labelSum7.Category = Jamb.Category.MinMax;
+            this.labelSum7.Direction = Jamb.Direction.Up;
+            this.labelSum7.Location = new System.Drawing.Point(193, 337);
+            this.labelSum7.Name = "labelSum7";
+            this.labelSum7.Size = new System.Drawing.Size(16, 17);
+            this.labelSum7.TabIndex = 90;
+            this.labelSum7.Text = "0";
+            this.labelSum7.Value = 0;
+            // 
+            // labelSum8
+            // 
+            this.labelSum8.AutoSize = true;
+            this.labelSum8.Category = Jamb.Category.MinMax;
+            this.labelSum8.Direction = Jamb.Direction.Down;
+            this.labelSum8.Location = new System.Drawing.Point(131, 337);
+            this.labelSum8.Name = "labelSum8";
+            this.labelSum8.Size = new System.Drawing.Size(16, 17);
+            this.labelSum8.TabIndex = 89;
+            this.labelSum8.Text = "0";
+            this.labelSum8.Value = 0;
+            // 
+            // labelSum4
+            // 
+            this.labelSum4.AutoSize = true;
+            this.labelSum4.Category = Jamb.Category.Numbers;
+            this.labelSum4.Direction = Jamb.Direction.Call;
+            this.labelSum4.Location = new System.Drawing.Point(333, 250);
+            this.labelSum4.Name = "labelSum4";
+            this.labelSum4.Size = new System.Drawing.Size(16, 17);
+            this.labelSum4.TabIndex = 88;
+            this.labelSum4.Text = "0";
+            this.labelSum4.Value = 0;
+            // 
+            // labelSum3
+            // 
+            this.labelSum3.AutoSize = true;
+            this.labelSum3.Category = Jamb.Category.Numbers;
+            this.labelSum3.Direction = Jamb.Direction.Free;
+            this.labelSum3.Location = new System.Drawing.Point(266, 250);
+            this.labelSum3.Name = "labelSum3";
+            this.labelSum3.Size = new System.Drawing.Size(16, 17);
+            this.labelSum3.TabIndex = 87;
+            this.labelSum3.Text = "0";
+            this.labelSum3.Value = 0;
+            // 
+            // labelSum2
+            // 
+            this.labelSum2.AutoSize = true;
+            this.labelSum2.Category = Jamb.Category.Numbers;
+            this.labelSum2.Direction = Jamb.Direction.Up;
+            this.labelSum2.Location = new System.Drawing.Point(193, 250);
+            this.labelSum2.Name = "labelSum2";
+            this.labelSum2.Size = new System.Drawing.Size(16, 17);
+            this.labelSum2.TabIndex = 86;
+            this.labelSum2.Text = "0";
+            this.labelSum2.Value = 0;
+            // 
+            // labelSum1
+            // 
+            this.labelSum1.AutoSize = true;
+            this.labelSum1.Category = Jamb.Category.Numbers;
+            this.labelSum1.Direction = Jamb.Direction.Down;
+            this.labelSum1.Location = new System.Drawing.Point(131, 250);
+            this.labelSum1.Name = "labelSum1";
+            this.labelSum1.Size = new System.Drawing.Size(16, 17);
+            this.labelSum1.TabIndex = 85;
+            this.labelSum1.Text = "0";
+            this.labelSum1.Value = 0;
             // 
             // btnDiceFive
             // 
@@ -338,7 +501,7 @@
             // 
             this.btnCallMin.Direction = Jamb.Direction.Call;
             this.btnCallMin.Enabled = false;
-            this.btnCallMin.Location = new System.Drawing.Point(310, 285);
+            this.btnCallMin.Location = new System.Drawing.Point(310, 305);
             this.btnCallMin.Name = "btnCallMin";
             this.btnCallMin.Size = new System.Drawing.Size(65, 29);
             this.btnCallMin.TabIndex = 52;
@@ -349,7 +512,7 @@
             // 
             this.btnCallMax.Direction = Jamb.Direction.Call;
             this.btnCallMax.Enabled = false;
-            this.btnCallMax.Location = new System.Drawing.Point(310, 250);
+            this.btnCallMax.Location = new System.Drawing.Point(310, 270);
             this.btnCallMax.Name = "btnCallMax";
             this.btnCallMax.Size = new System.Drawing.Size(65, 29);
             this.btnCallMax.TabIndex = 51;
@@ -360,7 +523,7 @@
             // 
             this.btnCallYamb.Direction = Jamb.Direction.Call;
             this.btnCallYamb.Enabled = false;
-            this.btnCallYamb.Location = new System.Drawing.Point(310, 460);
+            this.btnCallYamb.Location = new System.Drawing.Point(309, 507);
             this.btnCallYamb.Name = "btnCallYamb";
             this.btnCallYamb.Size = new System.Drawing.Size(65, 29);
             this.btnCallYamb.TabIndex = 50;
@@ -371,7 +534,7 @@
             // 
             this.btnCallPoker.Direction = Jamb.Direction.Call;
             this.btnCallPoker.Enabled = false;
-            this.btnCallPoker.Location = new System.Drawing.Point(310, 425);
+            this.btnCallPoker.Location = new System.Drawing.Point(309, 472);
             this.btnCallPoker.Name = "btnCallPoker";
             this.btnCallPoker.Size = new System.Drawing.Size(65, 29);
             this.btnCallPoker.TabIndex = 49;
@@ -382,7 +545,7 @@
             // 
             this.btnCallFull.Direction = Jamb.Direction.Call;
             this.btnCallFull.Enabled = false;
-            this.btnCallFull.Location = new System.Drawing.Point(310, 390);
+            this.btnCallFull.Location = new System.Drawing.Point(309, 437);
             this.btnCallFull.Name = "btnCallFull";
             this.btnCallFull.Size = new System.Drawing.Size(65, 29);
             this.btnCallFull.TabIndex = 48;
@@ -393,7 +556,7 @@
             // 
             this.btnCallStraight.Direction = Jamb.Direction.Call;
             this.btnCallStraight.Enabled = false;
-            this.btnCallStraight.Location = new System.Drawing.Point(310, 355);
+            this.btnCallStraight.Location = new System.Drawing.Point(309, 402);
             this.btnCallStraight.Name = "btnCallStraight";
             this.btnCallStraight.Size = new System.Drawing.Size(65, 29);
             this.btnCallStraight.TabIndex = 47;
@@ -404,7 +567,7 @@
             // 
             this.btnCallPairs.Direction = Jamb.Direction.Call;
             this.btnCallPairs.Enabled = false;
-            this.btnCallPairs.Location = new System.Drawing.Point(310, 320);
+            this.btnCallPairs.Location = new System.Drawing.Point(309, 367);
             this.btnCallPairs.Name = "btnCallPairs";
             this.btnCallPairs.Size = new System.Drawing.Size(65, 29);
             this.btnCallPairs.TabIndex = 46;
@@ -480,7 +643,7 @@
             // btnFreeMin
             // 
             this.btnFreeMin.Direction = Jamb.Direction.Free;
-            this.btnFreeMin.Location = new System.Drawing.Point(239, 285);
+            this.btnFreeMin.Location = new System.Drawing.Point(239, 305);
             this.btnFreeMin.Name = "btnFreeMin";
             this.btnFreeMin.Size = new System.Drawing.Size(65, 29);
             this.btnFreeMin.TabIndex = 39;
@@ -490,7 +653,7 @@
             // btnFreeMax
             // 
             this.btnFreeMax.Direction = Jamb.Direction.Free;
-            this.btnFreeMax.Location = new System.Drawing.Point(239, 250);
+            this.btnFreeMax.Location = new System.Drawing.Point(239, 270);
             this.btnFreeMax.Name = "btnFreeMax";
             this.btnFreeMax.Size = new System.Drawing.Size(65, 29);
             this.btnFreeMax.TabIndex = 38;
@@ -500,7 +663,7 @@
             // btnFreeYamb
             // 
             this.btnFreeYamb.Direction = Jamb.Direction.Free;
-            this.btnFreeYamb.Location = new System.Drawing.Point(239, 460);
+            this.btnFreeYamb.Location = new System.Drawing.Point(238, 507);
             this.btnFreeYamb.Name = "btnFreeYamb";
             this.btnFreeYamb.Size = new System.Drawing.Size(65, 29);
             this.btnFreeYamb.TabIndex = 37;
@@ -510,7 +673,7 @@
             // btnFreePoker
             // 
             this.btnFreePoker.Direction = Jamb.Direction.Free;
-            this.btnFreePoker.Location = new System.Drawing.Point(239, 425);
+            this.btnFreePoker.Location = new System.Drawing.Point(238, 472);
             this.btnFreePoker.Name = "btnFreePoker";
             this.btnFreePoker.Size = new System.Drawing.Size(65, 29);
             this.btnFreePoker.TabIndex = 36;
@@ -520,7 +683,7 @@
             // btnFreeFull
             // 
             this.btnFreeFull.Direction = Jamb.Direction.Free;
-            this.btnFreeFull.Location = new System.Drawing.Point(239, 390);
+            this.btnFreeFull.Location = new System.Drawing.Point(238, 437);
             this.btnFreeFull.Name = "btnFreeFull";
             this.btnFreeFull.Size = new System.Drawing.Size(65, 29);
             this.btnFreeFull.TabIndex = 35;
@@ -530,7 +693,7 @@
             // btnFreeStraight
             // 
             this.btnFreeStraight.Direction = Jamb.Direction.Free;
-            this.btnFreeStraight.Location = new System.Drawing.Point(239, 355);
+            this.btnFreeStraight.Location = new System.Drawing.Point(238, 402);
             this.btnFreeStraight.Name = "btnFreeStraight";
             this.btnFreeStraight.Size = new System.Drawing.Size(65, 29);
             this.btnFreeStraight.TabIndex = 34;
@@ -540,7 +703,7 @@
             // btnFreePairs
             // 
             this.btnFreePairs.Direction = Jamb.Direction.Free;
-            this.btnFreePairs.Location = new System.Drawing.Point(239, 320);
+            this.btnFreePairs.Location = new System.Drawing.Point(238, 367);
             this.btnFreePairs.Name = "btnFreePairs";
             this.btnFreePairs.Size = new System.Drawing.Size(65, 29);
             this.btnFreePairs.TabIndex = 33;
@@ -611,7 +774,7 @@
             // 
             this.btnUpMin.Direction = Jamb.Direction.Up;
             this.btnUpMin.Enabled = false;
-            this.btnUpMin.Location = new System.Drawing.Point(168, 285);
+            this.btnUpMin.Location = new System.Drawing.Point(168, 305);
             this.btnUpMin.Name = "btnUpMin";
             this.btnUpMin.Size = new System.Drawing.Size(65, 29);
             this.btnUpMin.TabIndex = 26;
@@ -622,7 +785,7 @@
             // 
             this.btnUpMax.Direction = Jamb.Direction.Up;
             this.btnUpMax.Enabled = false;
-            this.btnUpMax.Location = new System.Drawing.Point(168, 250);
+            this.btnUpMax.Location = new System.Drawing.Point(168, 270);
             this.btnUpMax.Name = "btnUpMax";
             this.btnUpMax.Size = new System.Drawing.Size(65, 29);
             this.btnUpMax.TabIndex = 25;
@@ -632,7 +795,7 @@
             // btnUpYamb
             // 
             this.btnUpYamb.Direction = Jamb.Direction.Up;
-            this.btnUpYamb.Location = new System.Drawing.Point(168, 460);
+            this.btnUpYamb.Location = new System.Drawing.Point(167, 507);
             this.btnUpYamb.Name = "btnUpYamb";
             this.btnUpYamb.Size = new System.Drawing.Size(65, 29);
             this.btnUpYamb.TabIndex = 24;
@@ -643,7 +806,7 @@
             // 
             this.btnUpPoker.Direction = Jamb.Direction.Up;
             this.btnUpPoker.Enabled = false;
-            this.btnUpPoker.Location = new System.Drawing.Point(168, 425);
+            this.btnUpPoker.Location = new System.Drawing.Point(167, 472);
             this.btnUpPoker.Name = "btnUpPoker";
             this.btnUpPoker.Size = new System.Drawing.Size(65, 29);
             this.btnUpPoker.TabIndex = 23;
@@ -654,7 +817,7 @@
             // 
             this.btnUpFull.Direction = Jamb.Direction.Up;
             this.btnUpFull.Enabled = false;
-            this.btnUpFull.Location = new System.Drawing.Point(168, 390);
+            this.btnUpFull.Location = new System.Drawing.Point(167, 437);
             this.btnUpFull.Name = "btnUpFull";
             this.btnUpFull.Size = new System.Drawing.Size(65, 29);
             this.btnUpFull.TabIndex = 22;
@@ -665,7 +828,7 @@
             // 
             this.btnUpStraight.Direction = Jamb.Direction.Up;
             this.btnUpStraight.Enabled = false;
-            this.btnUpStraight.Location = new System.Drawing.Point(168, 355);
+            this.btnUpStraight.Location = new System.Drawing.Point(167, 402);
             this.btnUpStraight.Name = "btnUpStraight";
             this.btnUpStraight.Size = new System.Drawing.Size(65, 29);
             this.btnUpStraight.TabIndex = 21;
@@ -676,7 +839,7 @@
             // 
             this.btnUpPairs.Direction = Jamb.Direction.Up;
             this.btnUpPairs.Enabled = false;
-            this.btnUpPairs.Location = new System.Drawing.Point(168, 320);
+            this.btnUpPairs.Location = new System.Drawing.Point(167, 367);
             this.btnUpPairs.Name = "btnUpPairs";
             this.btnUpPairs.Size = new System.Drawing.Size(65, 29);
             this.btnUpPairs.TabIndex = 20;
@@ -753,7 +916,7 @@
             // 
             this.btnDownMin.Direction = Jamb.Direction.Down;
             this.btnDownMin.Enabled = false;
-            this.btnDownMin.Location = new System.Drawing.Point(97, 285);
+            this.btnDownMin.Location = new System.Drawing.Point(97, 305);
             this.btnDownMin.Name = "btnDownMin";
             this.btnDownMin.Size = new System.Drawing.Size(65, 29);
             this.btnDownMin.TabIndex = 13;
@@ -764,7 +927,7 @@
             // 
             this.btnDownMax.Direction = Jamb.Direction.Down;
             this.btnDownMax.Enabled = false;
-            this.btnDownMax.Location = new System.Drawing.Point(97, 250);
+            this.btnDownMax.Location = new System.Drawing.Point(97, 270);
             this.btnDownMax.Name = "btnDownMax";
             this.btnDownMax.Size = new System.Drawing.Size(65, 29);
             this.btnDownMax.TabIndex = 12;
@@ -775,7 +938,7 @@
             // 
             this.btnDownYamb.Direction = Jamb.Direction.Down;
             this.btnDownYamb.Enabled = false;
-            this.btnDownYamb.Location = new System.Drawing.Point(97, 460);
+            this.btnDownYamb.Location = new System.Drawing.Point(96, 507);
             this.btnDownYamb.Name = "btnDownYamb";
             this.btnDownYamb.Size = new System.Drawing.Size(65, 29);
             this.btnDownYamb.TabIndex = 10;
@@ -786,7 +949,7 @@
             // 
             this.btnDownPoker.Direction = Jamb.Direction.Down;
             this.btnDownPoker.Enabled = false;
-            this.btnDownPoker.Location = new System.Drawing.Point(97, 425);
+            this.btnDownPoker.Location = new System.Drawing.Point(96, 472);
             this.btnDownPoker.Name = "btnDownPoker";
             this.btnDownPoker.Size = new System.Drawing.Size(65, 29);
             this.btnDownPoker.TabIndex = 9;
@@ -797,7 +960,7 @@
             // 
             this.btnDownFull.Direction = Jamb.Direction.Down;
             this.btnDownFull.Enabled = false;
-            this.btnDownFull.Location = new System.Drawing.Point(97, 390);
+            this.btnDownFull.Location = new System.Drawing.Point(96, 437);
             this.btnDownFull.Name = "btnDownFull";
             this.btnDownFull.Size = new System.Drawing.Size(65, 29);
             this.btnDownFull.TabIndex = 8;
@@ -808,7 +971,7 @@
             // 
             this.btnDownStraight.Direction = Jamb.Direction.Down;
             this.btnDownStraight.Enabled = false;
-            this.btnDownStraight.Location = new System.Drawing.Point(97, 355);
+            this.btnDownStraight.Location = new System.Drawing.Point(96, 402);
             this.btnDownStraight.Name = "btnDownStraight";
             this.btnDownStraight.Size = new System.Drawing.Size(65, 29);
             this.btnDownStraight.TabIndex = 7;
@@ -819,7 +982,7 @@
             // 
             this.btnDownPairs.Direction = Jamb.Direction.Down;
             this.btnDownPairs.Enabled = false;
-            this.btnDownPairs.Location = new System.Drawing.Point(97, 320);
+            this.btnDownPairs.Location = new System.Drawing.Point(96, 367);
             this.btnDownPairs.Name = "btnDownPairs";
             this.btnDownPairs.Size = new System.Drawing.Size(65, 29);
             this.btnDownPairs.TabIndex = 6;
@@ -895,7 +1058,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 573);
+            this.ClientSize = new System.Drawing.Size(790, 589);
+            this.Controls.Add(this.labelSum9);
+            this.Controls.Add(this.labelSum10);
+            this.Controls.Add(this.labelSum11);
+            this.Controls.Add(this.labelSum12);
+            this.Controls.Add(this.labelSum5);
+            this.Controls.Add(this.labelSum6);
+            this.Controls.Add(this.labelSum7);
+            this.Controls.Add(this.labelSum8);
+            this.Controls.Add(this.labelSum4);
+            this.Controls.Add(this.labelSum3);
+            this.Controls.Add(this.labelSum2);
+            this.Controls.Add(this.labelSum1);
             this.Controls.Add(this.lbRollsLeft);
             this.Controls.Add(this.btnCall);
             this.Controls.Add(this.btnDiceFive);
@@ -1058,6 +1233,19 @@
         private System.Windows.Forms.Button btnRoll;
         private System.Windows.Forms.Button btnCall;
         private System.Windows.Forms.Label lbRollsLeft;
+        private LabelSum labelSum1;
+        private LabelSum labelSum2;
+        private LabelSum labelSum3;
+        private LabelSum labelSum4;
+        private LabelSum labelSum5;
+        private LabelSum labelSum6;
+        private LabelSum labelSum7;
+        private LabelSum labelSum8;
+        private LabelSum labelSum9;
+        private LabelSum labelSum10;
+        private LabelSum labelSum11;
+        private LabelSum labelSum12;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

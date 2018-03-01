@@ -10,3 +10,4 @@ C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.exe
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.pdb
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.Dice.resources
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.Box.resources
+C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.LabelSum.resources

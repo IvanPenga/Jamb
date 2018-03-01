@@ -25,7 +25,7 @@ namespace Jamb
             set
             {
                 rollNumber = value;
-                if (rollNumber >= 3)
+                if (rollNumber > 3)
                 {
                     rollNumber = 0;
                     UnlockAll();
@@ -88,107 +88,7 @@ namespace Jamb
             RollNumber++;
         }
 
-        public static int SumAll()
-        {
-            return Dices.Sum(dice => dice.Number);
-        }
 
-        //sum numbers of the same kind
-        public static int SumNumbers(int number)
-        {
-            return Dices.Where(dice => dice.Number == number).Sum(dice => dice.Number);
-        }
-        
-        public static int SumPair()
-        {
-            int sum = 0;
-            int pairs = 0;
-            for (int i = 1; i < 7; i++)
-            {
-                int count = Dices.Count(dice => dice.Number == i);
-                if (count == 4 || count == 5)
-                {
-                    return 4 * i;
-                }
-                if (count >= 2)
-                {
-                    sum += i * 2;
-                    pairs++;
-                }
-            }
-            if (pairs == 2)
-                return sum;
-            else
-                return 0;
-        }
-        
-        public static int SumStraight()
-        {
-            if (Dices.Exists(dice => dice.Number == 2))
-                if (Dices.Exists(dice => dice.Number == 3))
-                    if (Dices.Exists(dice => dice.Number == 4))
-                        if (Dices.Exists(dice => dice.Number == 5))
-                            if (Dices.Exists(dice => dice.Number == 6))
-                                return 45;
-                            else if (Dices.Exists(dice => dice.Number == 1))
-                                return 35;
-            return 0;
-        }
-        
-        public static int SumFull()
-        {
-            int sum = 0;
-            bool two = false;
-            bool three = false;
-            for (int i = 1; i < 7; i++)
-            {
-                int cnt = Dices.Count(dice => dice.Number == i);
-                if (cnt == 5)
-                {
-                    return SumAll();
-                }
-                if (cnt == 2 && two == false)
-                {
-                    two = true;
-                    sum += 2 * i;
-                }
-                if (cnt == 3 && three == false)
-                {
-                    three = true;
-                    sum += 3 * i;
-                }
-            }
-            if (two && three)
-            {
-                return sum;
-            }
-            return 0;
-        }
-        
-        public static int SumPoker()
-        {
-            for (int i = 1; i < 7; i++)
-            {
-                int cnt = Dices.Count(dice => dice.Number == i);
-                if (cnt == 4 || cnt == 5)
-                {
-                    return 4*i;
-                }
-            }
-            return 0;
-        }
-        
-        public static int SumYamb()
-        {
-            for (int i = 1; i < Dices.Count; i++)
-            {
-                if (Dices[i].Number != Dices[0].Number)
-                {
-                    return 0;
-                }
-            }
-            return SumAll();
-        }
         
     }
 }

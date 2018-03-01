@@ -21,13 +21,17 @@ namespace Jamb
         private void btnRoll_Click(object sender, EventArgs e)
         {
             btnCall.Enabled = Dice.RollNumber >= 1 ? false : true;
-            Dice.RollAll();
-            
+            Dice.RollAll();            
         }
 
         private void btnCall_Click(object sender, EventArgs e)
         {
             Box.EnableCalls();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbRollsLeft.Text = "" + Dice.RollNumber;
         }
     }
 }

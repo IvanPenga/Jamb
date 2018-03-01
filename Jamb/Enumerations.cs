@@ -14,6 +14,13 @@ namespace Jamb
         Call
     }
 
+    public enum Category
+    {
+        Numbers,
+        MinMax,
+        Hands,
+        Total
+    }
 
     public enum Value
     {

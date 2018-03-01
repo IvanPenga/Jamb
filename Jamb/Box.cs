@@ -18,6 +18,8 @@ namespace Jamb
         public Direction Direction { get; set; }
         public bool Checked = false;
         private static bool CallsEnabled = false;
+        public event OnClickDelegate OnBoxClick;
+        public delegate void OnClickDelegate(int value);
 
         public Box()
         {
@@ -30,16 +32,25 @@ namespace Jamb
             base.OnPaint(pe);
         }
 
+
+        private void EnableSelectedCall()
+        {
+            foreach (Box box in Boxes.Where(box => box.Direction == Direction.Call))
+            {
+                box.Enabled = false;
+            }
+            this.Enabled = true;
+            CallsEnabled = false;
+        }
+
+
+
+
         private void Box_Click(object sender, EventArgs e)
         {
             if (CallsEnabled)
             {
-                foreach (Box box in Boxes.Where(box => box.Direction == Direction.Call))
-                {
-                    box.Enabled = false;
-                }
-                this.Enabled = true;
-                CallsEnabled = false;
+                EnableSelectedCall();
             }
             else
             {
@@ -49,9 +60,17 @@ namespace Jamb
                 }
                 this.Enabled = false;
                 Checked = true;
+                NextRound();
                 UnlockNext();
             }
 
+        }
+
+        private void NextRound()
+        {
+            Dice.RollNumber = 0;
+            Dice.UnlockAll();
+            Dice.RollAll();
         }
 
         public void Unlock()
@@ -112,7 +131,7 @@ namespace Jamb
         {
             if (this.Enabled && !CallsEnabled)
             {
-                this.Text = EvaluateBoxValue().ToString();
+                this.Text = Rules.EvaluateBoxValue(this.Value).ToString();
             }
         }
 
@@ -124,40 +143,14 @@ namespace Jamb
             }            
         }
 
-        private int EvaluateBoxValue()
+        private void HandleClick()
         {
-            switch (this.Value)
+            if (this.Direction == Direction.Down && Value == Value.One)
             {
-                case Value.One:
-                    return Dice.SumNumbers(1);                   
-                case Value.Two:
-                    return Dice.SumNumbers(2);                   
-                case Value.Three:
-                    return Dice.SumNumbers(3);                   
-                case Value.Four:
-                    return Dice.SumNumbers(4);
-                case Value.Five:
-                    return Dice.SumNumbers(5);                   
-                case Value.Six:
-                    return Dice.SumNumbers(6);                    
-                case Value.Max:
-                    return Dice.SumAll();                    
-                case Value.Min:
-                    return Dice.SumAll();                   
-                case Value.Pair:
-                    return Dice.SumPair();
-                case Value.Straight:
-                    return Dice.SumStraight();
-                case Value.Full:
-                    return Dice.SumFull();
-                case Value.Poker:
-                    return Dice.SumPoker();
-                case Value.Yamb:
-                    return Dice.SumYamb();
-                default:
-                    break;
+                OnBoxClick?.Invoke(2);
             }
-            return 0;
         }
+
+        
     }
 }
