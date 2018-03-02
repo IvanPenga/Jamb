@@ -14,24 +14,11 @@ namespace Jamb
     {
 
         public int  Number { get; private set; }
-        public bool Locked { get; private set; }
+        private bool Locked { get; set; }
         public static List<Dice> Dices = new List<Dice>();
         private static Random random = new Random();
 
-        private static int rollNumber = 0;
-        public static int RollNumber
-        {
-            get { return rollNumber; }
-            set
-            {
-                rollNumber = value;
-                if (rollNumber > 3)
-                {
-                    rollNumber = 0;
-                    UnlockAll();
-                }
-            }
-        }
+        
 
         public Dice()
         {
@@ -42,6 +29,22 @@ namespace Jamb
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+        }
+
+        public static void DisableAll()
+        {
+            foreach (Dice dice in Dices)
+            {
+                dice.Enabled = false;
+            }
+        }
+
+        public static void EnableAll()
+        {
+            foreach (Dice dice in Dices)
+            {
+                dice.Enabled = true;
+            }
         }
 
         public void Lock()
@@ -85,7 +88,6 @@ namespace Jamb
                     dice.Roll();
                 }
             }
-            RollNumber++;
         }
 
 

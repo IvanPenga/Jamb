@@ -57,6 +57,7 @@
     <Compile Include="Dice.Designer.cs">
       <DependentUpon>Dice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Language.cs" />
     <Compile Include="Enumerations.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -64,6 +65,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="LabelSum.cs">
       <SubType>Component</SubType>
     </Compile>

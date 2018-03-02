@@ -16,10 +16,18 @@ namespace Jamb
 
         public Value Value { get; set; }
         public Direction Direction { get; set; }
+        public Category Category { get; set; }
+
+        public int Points { get; set; }
+
         public bool Checked = false;
         private static bool CallsEnabled = false;
-        public event OnClickDelegate OnBoxClick;
-        public delegate void OnClickDelegate(int value);
+
+        public delegate void SimpleDelegate();
+        public delegate void PointDelegate(Box box);
+        public event SimpleDelegate OnCallSelected;
+        public event PointDelegate OnPointChanged;
+
 
         public Box()
         {
@@ -32,7 +40,7 @@ namespace Jamb
             base.OnPaint(pe);
         }
 
-
+        
         private void EnableSelectedCall()
         {
             foreach (Box box in Boxes.Where(box => box.Direction == Direction.Call))
@@ -41,6 +49,7 @@ namespace Jamb
             }
             this.Enabled = true;
             CallsEnabled = false;
+            OnCallSelected?.Invoke();
         }
 
 
@@ -51,6 +60,7 @@ namespace Jamb
             if (CallsEnabled)
             {
                 EnableSelectedCall();
+                this.Box_MouseEnter(sender,e);
             }
             else
             {
@@ -60,18 +70,13 @@ namespace Jamb
                 }
                 this.Enabled = false;
                 Checked = true;
-                NextRound();
+                Game.NextRound();
+                Points = int.Parse(this.Text);
+                OnPointChanged?.Invoke(this);
                 UnlockNext();
             }
-
         }
 
-        private void NextRound()
-        {
-            Dice.RollNumber = 0;
-            Dice.UnlockAll();
-            Dice.RollAll();
-        }
 
         public void Unlock()
         {
@@ -108,7 +113,7 @@ namespace Jamb
             tempClosed.Clear();
         }
 
-        public static List<Box> tempClosed = new List<Box>();
+        private static List<Box> tempClosed = new List<Box>();
 
         public static void EnableCalls()
         {
@@ -132,6 +137,7 @@ namespace Jamb
             if (this.Enabled && !CallsEnabled)
             {
                 this.Text = Rules.EvaluateBoxValue(this.Value).ToString();
+                
             }
         }
 
@@ -143,13 +149,6 @@ namespace Jamb
             }            
         }
 
-        private void HandleClick()
-        {
-            if (this.Direction == Direction.Down && Value == Value.One)
-            {
-                OnBoxClick?.Invoke(2);
-            }
-        }
 
         
     }
