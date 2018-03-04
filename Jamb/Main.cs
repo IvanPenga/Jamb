@@ -14,21 +14,28 @@ namespace Jamb
     {
 
         private bool CallsEnabled = false;
+        private bool OnlyCallsLeft = false;
 
         public Main()
         {
             InitializeComponent();
             Game.OnNextRound += Game_OnNextRound;
             Game.OnRollChanged += Game_OnRollChanged;
+            BoxButton.OnOnlyCallsLeft += BoxButton_OnOnlyCallsLeft;
             
             DiceButton.RollAll();
+        }
+
+        private void BoxButton_OnOnlyCallsLeft()
+        {
+            OnlyCallsLeft = true;
         }
 
         private void Game_OnRollChanged()
         {
             switch (Game.RollNumber)
             {
-                case 1: btnCall.Enabled = true;  break;
+                case 1: btnCall.Enabled = true; break;
                 case 2: btnCall.Enabled = false; break;
                 case 3: Game.LastMove(); btnRoll.Enabled = false; break;
                 case 4: Game.NextRound();  break;
@@ -40,7 +47,7 @@ namespace Jamb
         private void Game_OnNextRound()
         {
             btnCall.Enabled = true;
-            btnRoll.Enabled = true;
+            EnableRollButton();
         }
 
         private void btnRoll_Click(object sender, EventArgs e)
@@ -74,7 +81,15 @@ namespace Jamb
         {
             CallsEnabled = false;
             BoxButton.DisableCalls();
-            btnRoll.Enabled = true;
+            EnableRollButton();
+        }
+
+        private void EnableRollButton()
+        {
+            if (OnlyCallsLeft)
+                btnRoll.Enabled = false;
+            else
+                btnRoll.Enabled = true;
         }
 
         private void OnCallSelected()

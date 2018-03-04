@@ -14,6 +14,9 @@ namespace Jamb
     {
         public static List<BoxButton> Boxes = new List<BoxButton>();
 
+        public static List<BoxButton> NonCallBox = new List<BoxButton>();
+        public int MaxSizeNonCallBox = 39; // 3 * 13 (Up,Down,Free * numbers,min-max,hands)
+
         public Value Value { get; set; }
         public Direction Direction { get; set; }
         public Category Category { get; set; }
@@ -26,8 +29,9 @@ namespace Jamb
         public delegate void SimpleDelegate();
         public delegate void PointDelegate(BoxButton box);
         public event SimpleDelegate OnCallSelected;
+        public static event SimpleDelegate OnOnlyCallsLeft;
         public event PointDelegate OnPointChanged;
-
+        
 
         public BoxButton()
         {
@@ -65,9 +69,17 @@ namespace Jamb
                 {
                     ReturnTempClosed();
                 }
+                if (this.Direction != Direction.Call)
+                {
+                    NonCallBox.Add(this);
+                    if (NonCallBox.Count >= 39)
+                    {
+                        OnOnlyCallsLeft?.Invoke();
+                    }
+                }
                 this.Enabled = false;
                 Checked = true;
-                Game.NextRound();
+                Game.NextRound();              
                 SetPoints();
                 OnPointChanged?.Invoke(this);
                 UnlockNext();
