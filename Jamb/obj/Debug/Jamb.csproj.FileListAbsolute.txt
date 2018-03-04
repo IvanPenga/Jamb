@@ -2,12 +2,12 @@ C:\Users\ivanp\source\repos\Jamb\Jamb\bin\Debug\Jamb.exe.config
 C:\Users\ivanp\source\repos\Jamb\Jamb\bin\Debug\Jamb.exe
 C:\Users\ivanp\source\repos\Jamb\Jamb\bin\Debug\Jamb.pdb
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.csprojResolveAssemblyReference.cache
-C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.Form1.resources
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.Properties.Resources.resources
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.csproj.GenerateResource.Cache
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.csproj.CoreCompileInputs.cache
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.exe
 C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.pdb
-C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.Dice.resources
-C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.Box.resources
-C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.LabelSum.resources
+C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.DiceButton.resources
+C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.Main.resources
+C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.BoxButton.resources
+C:\Users\ivanp\source\repos\Jamb\Jamb\obj\Debug\Jamb.SumLabel.resources

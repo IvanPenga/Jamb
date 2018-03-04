@@ -1,6 +1,6 @@
 ﻿namespace Jamb
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -49,75 +49,75 @@
             this.btnRoll = new System.Windows.Forms.Button();
             this.lbRollsLeft = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.labelSum9 = new Jamb.LabelSum();
-            this.labelSum10 = new Jamb.LabelSum();
-            this.labelSum11 = new Jamb.LabelSum();
-            this.labelSum12 = new Jamb.LabelSum();
-            this.lbCallMinMax = new Jamb.LabelSum();
-            this.lbFreeMinMax = new Jamb.LabelSum();
-            this.lbUpMinMax = new Jamb.LabelSum();
-            this.lbDownMinMax = new Jamb.LabelSum();
-            this.labelSum4 = new Jamb.LabelSum();
-            this.labelSum3 = new Jamb.LabelSum();
-            this.labelSum2 = new Jamb.LabelSum();
-            this.labelSum1 = new Jamb.LabelSum();
-            this.btnDiceFive = new Jamb.Dice();
-            this.btnDiceFour = new Jamb.Dice();
-            this.btnDiceThree = new Jamb.Dice();
-            this.btnDiceTwo = new Jamb.Dice();
-            this.btnDiceOne = new Jamb.Dice();
-            this.btnCallMin = new Jamb.Box();
-            this.btnCallMax = new Jamb.Box();
-            this.btnCallYamb = new Jamb.Box();
-            this.btnCallPoker = new Jamb.Box();
-            this.btnCallFull = new Jamb.Box();
-            this.btnCallStraight = new Jamb.Box();
-            this.btnCallPairs = new Jamb.Box();
-            this.btnCallSix = new Jamb.Box();
-            this.btnCallFive = new Jamb.Box();
-            this.btnCallFour = new Jamb.Box();
-            this.btnCallThree = new Jamb.Box();
-            this.btnCallTwo = new Jamb.Box();
-            this.btnCallOne = new Jamb.Box();
-            this.btnFreeMin = new Jamb.Box();
-            this.btnFreeMax = new Jamb.Box();
-            this.btnFreeYamb = new Jamb.Box();
-            this.btnFreePoker = new Jamb.Box();
-            this.btnFreeFull = new Jamb.Box();
-            this.btnFreeStraight = new Jamb.Box();
-            this.btnFreePairs = new Jamb.Box();
-            this.btnFreeSix = new Jamb.Box();
-            this.btnFreeFive = new Jamb.Box();
-            this.btnFreeFour = new Jamb.Box();
-            this.btnFreeThree = new Jamb.Box();
-            this.btnFreeTwo = new Jamb.Box();
-            this.btnFreeOne = new Jamb.Box();
-            this.btnUpMin = new Jamb.Box();
-            this.btnUpMax = new Jamb.Box();
-            this.btnUpYamb = new Jamb.Box();
-            this.btnUpPoker = new Jamb.Box();
-            this.btnUpFull = new Jamb.Box();
-            this.btnUpStraight = new Jamb.Box();
-            this.btnUpPairs = new Jamb.Box();
-            this.btnUpSix = new Jamb.Box();
-            this.btnUpFive = new Jamb.Box();
-            this.btnUpFour = new Jamb.Box();
-            this.btnUpThree = new Jamb.Box();
-            this.btnUpTwo = new Jamb.Box();
-            this.btnUpOne = new Jamb.Box();
-            this.btnDownMin = new Jamb.Box();
-            this.btnDownMax = new Jamb.Box();
-            this.btnDownYamb = new Jamb.Box();
-            this.btnDownPoker = new Jamb.Box();
-            this.btnDownFull = new Jamb.Box();
-            this.btnDownStraight = new Jamb.Box();
-            this.btnDownPairs = new Jamb.Box();
-            this.btnDownSix = new Jamb.Box();
-            this.btnDownFive = new Jamb.Box();
-            this.btnDownFour = new Jamb.Box();
-            this.btnDownThree = new Jamb.Box();
-            this.btnDownTwo = new Jamb.Box();
-            this.btnDownOne = new Jamb.Box();
+            this.labelSum9 = new Jamb.SumLabel();
+            this.labelSum10 = new Jamb.SumLabel();
+            this.labelSum11 = new Jamb.SumLabel();
+            this.labelSum12 = new Jamb.SumLabel();
+            this.lbCallMinMax = new Jamb.SumLabel();
+            this.lbFreeMinMax = new Jamb.SumLabel();
+            this.lbUpMinMax = new Jamb.SumLabel();
+            this.lbDownMinMax = new Jamb.SumLabel();
+            this.labelSum4 = new Jamb.SumLabel();
+            this.labelSum3 = new Jamb.SumLabel();
+            this.labelSum2 = new Jamb.SumLabel();
+            this.labelSum1 = new Jamb.SumLabel();
+            this.btnDiceFive = new Jamb.DiceButton();
+            this.btnDiceFour = new Jamb.DiceButton();
+            this.btnDiceThree = new Jamb.DiceButton();
+            this.btnDiceTwo = new Jamb.DiceButton();
+            this.btnDiceOne = new Jamb.DiceButton();
+            this.btnCallMin = new Jamb.BoxButton();
+            this.btnCallMax = new Jamb.BoxButton();
+            this.btnCallYamb = new Jamb.BoxButton();
+            this.btnCallPoker = new Jamb.BoxButton();
+            this.btnCallFull = new Jamb.BoxButton();
+            this.btnCallStraight = new Jamb.BoxButton();
+            this.btnCallPairs = new Jamb.BoxButton();
+            this.btnCallSix = new Jamb.BoxButton();
+            this.btnCallFive = new Jamb.BoxButton();
+            this.btnCallFour = new Jamb.BoxButton();
+            this.btnCallThree = new Jamb.BoxButton();
+            this.btnCallTwo = new Jamb.BoxButton();
+            this.btnCallOne = new Jamb.BoxButton();
+            this.btnFreeMin = new Jamb.BoxButton();
+            this.btnFreeMax = new Jamb.BoxButton();
+            this.btnFreeYamb = new Jamb.BoxButton();
+            this.btnFreePoker = new Jamb.BoxButton();
+            this.btnFreeFull = new Jamb.BoxButton();
+            this.btnFreeStraight = new Jamb.BoxButton();
+            this.btnFreePairs = new Jamb.BoxButton();
+            this.btnFreeSix = new Jamb.BoxButton();
+            this.btnFreeFive = new Jamb.BoxButton();
+            this.btnFreeFour = new Jamb.BoxButton();
+            this.btnFreeThree = new Jamb.BoxButton();
+            this.btnFreeTwo = new Jamb.BoxButton();
+            this.btnFreeOne = new Jamb.BoxButton();
+            this.btnUpMin = new Jamb.BoxButton();
+            this.btnUpMax = new Jamb.BoxButton();
+            this.btnUpYamb = new Jamb.BoxButton();
+            this.btnUpPoker = new Jamb.BoxButton();
+            this.btnUpFull = new Jamb.BoxButton();
+            this.btnUpStraight = new Jamb.BoxButton();
+            this.btnUpPairs = new Jamb.BoxButton();
+            this.btnUpSix = new Jamb.BoxButton();
+            this.btnUpFive = new Jamb.BoxButton();
+            this.btnUpFour = new Jamb.BoxButton();
+            this.btnUpThree = new Jamb.BoxButton();
+            this.btnUpTwo = new Jamb.BoxButton();
+            this.btnUpOne = new Jamb.BoxButton();
+            this.btnDownMin = new Jamb.BoxButton();
+            this.btnDownMax = new Jamb.BoxButton();
+            this.btnDownYamb = new Jamb.BoxButton();
+            this.btnDownPoker = new Jamb.BoxButton();
+            this.btnDownFull = new Jamb.BoxButton();
+            this.btnDownStraight = new Jamb.BoxButton();
+            this.btnDownPairs = new Jamb.BoxButton();
+            this.btnDownSix = new Jamb.BoxButton();
+            this.btnDownFive = new Jamb.BoxButton();
+            this.btnDownFour = new Jamb.BoxButton();
+            this.btnDownThree = new Jamb.BoxButton();
+            this.btnDownTwo = new Jamb.BoxButton();
+            this.btnDownOne = new Jamb.BoxButton();
             this.SuspendLayout();
             // 
             // label1
@@ -517,8 +517,8 @@
             this.btnCallMin.TabIndex = 52;
             this.btnCallMin.UseVisualStyleBackColor = true;
             this.btnCallMin.Value = Jamb.Value.Min;
-            this.btnCallMin.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallMin.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallMin.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallMin.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallMax
             // 
@@ -532,8 +532,8 @@
             this.btnCallMax.TabIndex = 51;
             this.btnCallMax.UseVisualStyleBackColor = true;
             this.btnCallMax.Value = Jamb.Value.Max;
-            this.btnCallMax.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallMax.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallMax.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallMax.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallYamb
             // 
@@ -547,8 +547,8 @@
             this.btnCallYamb.TabIndex = 50;
             this.btnCallYamb.UseVisualStyleBackColor = true;
             this.btnCallYamb.Value = Jamb.Value.Yamb;
-            this.btnCallYamb.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallYamb.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallYamb.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallYamb.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallPoker
             // 
@@ -562,8 +562,8 @@
             this.btnCallPoker.TabIndex = 49;
             this.btnCallPoker.UseVisualStyleBackColor = true;
             this.btnCallPoker.Value = Jamb.Value.Poker;
-            this.btnCallPoker.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallPoker.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallPoker.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallPoker.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallFull
             // 
@@ -577,8 +577,8 @@
             this.btnCallFull.TabIndex = 48;
             this.btnCallFull.UseVisualStyleBackColor = true;
             this.btnCallFull.Value = Jamb.Value.Full;
-            this.btnCallFull.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallFull.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallFull.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallFull.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallStraight
             // 
@@ -592,8 +592,8 @@
             this.btnCallStraight.TabIndex = 47;
             this.btnCallStraight.UseVisualStyleBackColor = true;
             this.btnCallStraight.Value = Jamb.Value.Straight;
-            this.btnCallStraight.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallStraight.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallStraight.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallStraight.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallPairs
             // 
@@ -607,8 +607,8 @@
             this.btnCallPairs.TabIndex = 46;
             this.btnCallPairs.UseVisualStyleBackColor = true;
             this.btnCallPairs.Value = Jamb.Value.Pair;
-            this.btnCallPairs.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallPairs.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallPairs.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallPairs.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallSix
             // 
@@ -622,8 +622,8 @@
             this.btnCallSix.TabIndex = 45;
             this.btnCallSix.UseVisualStyleBackColor = true;
             this.btnCallSix.Value = Jamb.Value.Six;
-            this.btnCallSix.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallSix.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallSix.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallSix.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallFive
             // 
@@ -637,8 +637,8 @@
             this.btnCallFive.TabIndex = 44;
             this.btnCallFive.UseVisualStyleBackColor = true;
             this.btnCallFive.Value = Jamb.Value.Five;
-            this.btnCallFive.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallFive.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallFive.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallFive.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallFour
             // 
@@ -652,8 +652,8 @@
             this.btnCallFour.TabIndex = 43;
             this.btnCallFour.UseVisualStyleBackColor = true;
             this.btnCallFour.Value = Jamb.Value.Four;
-            this.btnCallFour.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallFour.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallFour.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallFour.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallThree
             // 
@@ -667,8 +667,8 @@
             this.btnCallThree.TabIndex = 42;
             this.btnCallThree.UseVisualStyleBackColor = true;
             this.btnCallThree.Value = Jamb.Value.Three;
-            this.btnCallThree.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallThree.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallThree.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallThree.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallTwo
             // 
@@ -682,8 +682,8 @@
             this.btnCallTwo.TabIndex = 41;
             this.btnCallTwo.UseVisualStyleBackColor = true;
             this.btnCallTwo.Value = Jamb.Value.Two;
-            this.btnCallTwo.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallTwo.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallTwo.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallTwo.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnCallOne
             // 
@@ -697,8 +697,8 @@
             this.btnCallOne.TabIndex = 40;
             this.btnCallOne.UseVisualStyleBackColor = true;
             this.btnCallOne.Value = Jamb.Value.One;
-            this.btnCallOne.OnCallSelected += new Jamb.Box.SimpleDelegate(this.OnCallSelected);
-            this.btnCallOne.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallOne.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
+            this.btnCallOne.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeMin
             // 
@@ -711,7 +711,7 @@
             this.btnFreeMin.TabIndex = 39;
             this.btnFreeMin.UseVisualStyleBackColor = true;
             this.btnFreeMin.Value = Jamb.Value.Min;
-            this.btnFreeMin.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeMin.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeMax
             // 
@@ -724,7 +724,7 @@
             this.btnFreeMax.TabIndex = 38;
             this.btnFreeMax.UseVisualStyleBackColor = true;
             this.btnFreeMax.Value = Jamb.Value.Max;
-            this.btnFreeMax.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeMax.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeYamb
             // 
@@ -737,7 +737,7 @@
             this.btnFreeYamb.TabIndex = 37;
             this.btnFreeYamb.UseVisualStyleBackColor = true;
             this.btnFreeYamb.Value = Jamb.Value.Yamb;
-            this.btnFreeYamb.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeYamb.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreePoker
             // 
@@ -750,7 +750,7 @@
             this.btnFreePoker.TabIndex = 36;
             this.btnFreePoker.UseVisualStyleBackColor = true;
             this.btnFreePoker.Value = Jamb.Value.Poker;
-            this.btnFreePoker.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreePoker.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeFull
             // 
@@ -763,7 +763,7 @@
             this.btnFreeFull.TabIndex = 35;
             this.btnFreeFull.UseVisualStyleBackColor = true;
             this.btnFreeFull.Value = Jamb.Value.Full;
-            this.btnFreeFull.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeFull.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeStraight
             // 
@@ -776,7 +776,7 @@
             this.btnFreeStraight.TabIndex = 34;
             this.btnFreeStraight.UseVisualStyleBackColor = true;
             this.btnFreeStraight.Value = Jamb.Value.Straight;
-            this.btnFreeStraight.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeStraight.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreePairs
             // 
@@ -789,7 +789,7 @@
             this.btnFreePairs.TabIndex = 33;
             this.btnFreePairs.UseVisualStyleBackColor = true;
             this.btnFreePairs.Value = Jamb.Value.Pair;
-            this.btnFreePairs.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreePairs.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeSix
             // 
@@ -802,7 +802,7 @@
             this.btnFreeSix.TabIndex = 32;
             this.btnFreeSix.UseVisualStyleBackColor = true;
             this.btnFreeSix.Value = Jamb.Value.Six;
-            this.btnFreeSix.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeSix.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeFive
             // 
@@ -815,7 +815,7 @@
             this.btnFreeFive.TabIndex = 31;
             this.btnFreeFive.UseVisualStyleBackColor = true;
             this.btnFreeFive.Value = Jamb.Value.Five;
-            this.btnFreeFive.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeFive.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeFour
             // 
@@ -828,7 +828,7 @@
             this.btnFreeFour.TabIndex = 30;
             this.btnFreeFour.UseVisualStyleBackColor = true;
             this.btnFreeFour.Value = Jamb.Value.Four;
-            this.btnFreeFour.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeFour.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeThree
             // 
@@ -841,7 +841,7 @@
             this.btnFreeThree.TabIndex = 29;
             this.btnFreeThree.UseVisualStyleBackColor = true;
             this.btnFreeThree.Value = Jamb.Value.Three;
-            this.btnFreeThree.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeThree.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeTwo
             // 
@@ -854,7 +854,7 @@
             this.btnFreeTwo.TabIndex = 28;
             this.btnFreeTwo.UseVisualStyleBackColor = true;
             this.btnFreeTwo.Value = Jamb.Value.Two;
-            this.btnFreeTwo.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeTwo.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnFreeOne
             // 
@@ -867,7 +867,7 @@
             this.btnFreeOne.TabIndex = 27;
             this.btnFreeOne.UseVisualStyleBackColor = true;
             this.btnFreeOne.Value = Jamb.Value.One;
-            this.btnFreeOne.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeOne.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpMin
             // 
@@ -881,7 +881,7 @@
             this.btnUpMin.TabIndex = 26;
             this.btnUpMin.UseVisualStyleBackColor = true;
             this.btnUpMin.Value = Jamb.Value.Min;
-            this.btnUpMin.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpMin.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpMax
             // 
@@ -895,7 +895,7 @@
             this.btnUpMax.TabIndex = 25;
             this.btnUpMax.UseVisualStyleBackColor = true;
             this.btnUpMax.Value = Jamb.Value.Max;
-            this.btnUpMax.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpMax.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpYamb
             // 
@@ -908,7 +908,7 @@
             this.btnUpYamb.TabIndex = 24;
             this.btnUpYamb.UseVisualStyleBackColor = true;
             this.btnUpYamb.Value = Jamb.Value.Yamb;
-            this.btnUpYamb.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpYamb.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpPoker
             // 
@@ -922,7 +922,7 @@
             this.btnUpPoker.TabIndex = 23;
             this.btnUpPoker.UseVisualStyleBackColor = true;
             this.btnUpPoker.Value = Jamb.Value.Poker;
-            this.btnUpPoker.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpPoker.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpFull
             // 
@@ -936,7 +936,7 @@
             this.btnUpFull.TabIndex = 22;
             this.btnUpFull.UseVisualStyleBackColor = true;
             this.btnUpFull.Value = Jamb.Value.Full;
-            this.btnUpFull.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpFull.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpStraight
             // 
@@ -950,7 +950,7 @@
             this.btnUpStraight.TabIndex = 21;
             this.btnUpStraight.UseVisualStyleBackColor = true;
             this.btnUpStraight.Value = Jamb.Value.Straight;
-            this.btnUpStraight.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpStraight.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpPairs
             // 
@@ -964,7 +964,7 @@
             this.btnUpPairs.TabIndex = 20;
             this.btnUpPairs.UseVisualStyleBackColor = true;
             this.btnUpPairs.Value = Jamb.Value.Pair;
-            this.btnUpPairs.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpPairs.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpSix
             // 
@@ -978,7 +978,7 @@
             this.btnUpSix.TabIndex = 19;
             this.btnUpSix.UseVisualStyleBackColor = true;
             this.btnUpSix.Value = Jamb.Value.Six;
-            this.btnUpSix.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpSix.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpFive
             // 
@@ -992,7 +992,7 @@
             this.btnUpFive.TabIndex = 18;
             this.btnUpFive.UseVisualStyleBackColor = true;
             this.btnUpFive.Value = Jamb.Value.Five;
-            this.btnUpFive.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpFive.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpFour
             // 
@@ -1006,7 +1006,7 @@
             this.btnUpFour.TabIndex = 17;
             this.btnUpFour.UseVisualStyleBackColor = true;
             this.btnUpFour.Value = Jamb.Value.Four;
-            this.btnUpFour.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpFour.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpThree
             // 
@@ -1020,7 +1020,7 @@
             this.btnUpThree.TabIndex = 16;
             this.btnUpThree.UseVisualStyleBackColor = true;
             this.btnUpThree.Value = Jamb.Value.Three;
-            this.btnUpThree.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpThree.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpTwo
             // 
@@ -1034,7 +1034,7 @@
             this.btnUpTwo.TabIndex = 15;
             this.btnUpTwo.UseVisualStyleBackColor = true;
             this.btnUpTwo.Value = Jamb.Value.Two;
-            this.btnUpTwo.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpTwo.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnUpOne
             // 
@@ -1048,7 +1048,7 @@
             this.btnUpOne.TabIndex = 14;
             this.btnUpOne.UseVisualStyleBackColor = true;
             this.btnUpOne.Value = Jamb.Value.One;
-            this.btnUpOne.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpOne.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownMin
             // 
@@ -1062,7 +1062,7 @@
             this.btnDownMin.TabIndex = 13;
             this.btnDownMin.UseVisualStyleBackColor = true;
             this.btnDownMin.Value = Jamb.Value.Min;
-            this.btnDownMin.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownMin.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownMax
             // 
@@ -1076,7 +1076,7 @@
             this.btnDownMax.TabIndex = 12;
             this.btnDownMax.UseVisualStyleBackColor = true;
             this.btnDownMax.Value = Jamb.Value.Max;
-            this.btnDownMax.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownMax.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownYamb
             // 
@@ -1090,7 +1090,7 @@
             this.btnDownYamb.TabIndex = 10;
             this.btnDownYamb.UseVisualStyleBackColor = true;
             this.btnDownYamb.Value = Jamb.Value.Yamb;
-            this.btnDownYamb.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownYamb.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownPoker
             // 
@@ -1104,7 +1104,7 @@
             this.btnDownPoker.TabIndex = 9;
             this.btnDownPoker.UseVisualStyleBackColor = true;
             this.btnDownPoker.Value = Jamb.Value.Poker;
-            this.btnDownPoker.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownPoker.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownFull
             // 
@@ -1118,7 +1118,7 @@
             this.btnDownFull.TabIndex = 8;
             this.btnDownFull.UseVisualStyleBackColor = true;
             this.btnDownFull.Value = Jamb.Value.Full;
-            this.btnDownFull.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownFull.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownStraight
             // 
@@ -1132,7 +1132,7 @@
             this.btnDownStraight.TabIndex = 7;
             this.btnDownStraight.UseVisualStyleBackColor = true;
             this.btnDownStraight.Value = Jamb.Value.Straight;
-            this.btnDownStraight.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownStraight.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownPairs
             // 
@@ -1146,7 +1146,7 @@
             this.btnDownPairs.TabIndex = 6;
             this.btnDownPairs.UseVisualStyleBackColor = true;
             this.btnDownPairs.Value = Jamb.Value.Pair;
-            this.btnDownPairs.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownPairs.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownSix
             // 
@@ -1160,7 +1160,7 @@
             this.btnDownSix.TabIndex = 5;
             this.btnDownSix.UseVisualStyleBackColor = true;
             this.btnDownSix.Value = Jamb.Value.Six;
-            this.btnDownSix.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownSix.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownFive
             // 
@@ -1174,7 +1174,7 @@
             this.btnDownFive.TabIndex = 4;
             this.btnDownFive.UseVisualStyleBackColor = true;
             this.btnDownFive.Value = Jamb.Value.Five;
-            this.btnDownFive.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownFive.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownFour
             // 
@@ -1188,7 +1188,7 @@
             this.btnDownFour.TabIndex = 3;
             this.btnDownFour.UseVisualStyleBackColor = true;
             this.btnDownFour.Value = Jamb.Value.Four;
-            this.btnDownFour.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownFour.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownThree
             // 
@@ -1202,7 +1202,7 @@
             this.btnDownThree.TabIndex = 2;
             this.btnDownThree.UseVisualStyleBackColor = true;
             this.btnDownThree.Value = Jamb.Value.Three;
-            this.btnDownThree.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownThree.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownTwo
             // 
@@ -1216,7 +1216,7 @@
             this.btnDownTwo.TabIndex = 1;
             this.btnDownTwo.UseVisualStyleBackColor = true;
             this.btnDownTwo.Value = Jamb.Value.Two;
-            this.btnDownTwo.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownTwo.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
             // btnDownOne
             // 
@@ -1229,9 +1229,9 @@
             this.btnDownOne.TabIndex = 0;
             this.btnDownOne.UseVisualStyleBackColor = true;
             this.btnDownOne.Value = Jamb.Value.One;
-            this.btnDownOne.OnPointChanged += new Jamb.Box.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownOne.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1326,7 +1326,7 @@
             this.Controls.Add(this.btnDownThree);
             this.Controls.Add(this.btnDownTwo);
             this.Controls.Add(this.btnDownOne);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1351,78 +1351,78 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private Dice btnDiceOne;
-        private Dice btnDiceTwo;
-        private Dice btnDiceThree;
-        private Dice btnDiceFive;
-        private Dice btnDiceFour;
-        private Box btnDownOne;
-        private Box btnDownTwo;
-        private Box btnDownFour;
-        private Box btnDownThree;
-        private Box btnDownSix;
-        private Box btnDownFive;
-        private Box btnDownYamb;
-        private Box btnDownPoker;
-        private Box btnDownFull;
-        private Box btnDownStraight;
-        private Box btnDownPairs;
-        private Box btnDownMin;
-        private Box btnDownMax;
-        private Box btnUpMin;
-        private Box btnUpMax;
-        private Box btnUpYamb;
-        private Box btnUpPoker;
-        private Box btnUpFull;
-        private Box btnUpStraight;
-        private Box btnUpPairs;
-        private Box btnUpSix;
-        private Box btnUpFive;
-        private Box btnUpFour;
-        private Box btnUpThree;
-        private Box btnUpTwo;
-        private Box btnUpOne;
-        private Box btnCallMin;
-        private Box btnCallMax;
-        private Box btnCallYamb;
-        private Box btnCallPoker;
-        private Box btnCallFull;
-        private Box btnCallStraight;
-        private Box btnCallPairs;
-        private Box btnCallSix;
-        private Box btnCallFive;
-        private Box btnCallFour;
-        private Box btnCallThree;
-        private Box btnCallTwo;
-        private Box btnCallOne;
-        private Box btnFreeMin;
-        private Box btnFreeMax;
-        private Box btnFreeYamb;
-        private Box btnFreePoker;
-        private Box btnFreeFull;
-        private Box btnFreeStraight;
-        private Box btnFreePairs;
-        private Box btnFreeSix;
-        private Box btnFreeFive;
-        private Box btnFreeFour;
-        private Box btnFreeThree;
-        private Box btnFreeTwo;
-        private Box btnFreeOne;
+        private DiceButton btnDiceOne;
+        private DiceButton btnDiceTwo;
+        private DiceButton btnDiceThree;
+        private DiceButton btnDiceFive;
+        private DiceButton btnDiceFour;
+        private BoxButton btnDownOne;
+        private BoxButton btnDownTwo;
+        private BoxButton btnDownFour;
+        private BoxButton btnDownThree;
+        private BoxButton btnDownSix;
+        private BoxButton btnDownFive;
+        private BoxButton btnDownYamb;
+        private BoxButton btnDownPoker;
+        private BoxButton btnDownFull;
+        private BoxButton btnDownStraight;
+        private BoxButton btnDownPairs;
+        private BoxButton btnDownMin;
+        private BoxButton btnDownMax;
+        private BoxButton btnUpMin;
+        private BoxButton btnUpMax;
+        private BoxButton btnUpYamb;
+        private BoxButton btnUpPoker;
+        private BoxButton btnUpFull;
+        private BoxButton btnUpStraight;
+        private BoxButton btnUpPairs;
+        private BoxButton btnUpSix;
+        private BoxButton btnUpFive;
+        private BoxButton btnUpFour;
+        private BoxButton btnUpThree;
+        private BoxButton btnUpTwo;
+        private BoxButton btnUpOne;
+        private BoxButton btnCallMin;
+        private BoxButton btnCallMax;
+        private BoxButton btnCallYamb;
+        private BoxButton btnCallPoker;
+        private BoxButton btnCallFull;
+        private BoxButton btnCallStraight;
+        private BoxButton btnCallPairs;
+        private BoxButton btnCallSix;
+        private BoxButton btnCallFive;
+        private BoxButton btnCallFour;
+        private BoxButton btnCallThree;
+        private BoxButton btnCallTwo;
+        private BoxButton btnCallOne;
+        private BoxButton btnFreeMin;
+        private BoxButton btnFreeMax;
+        private BoxButton btnFreeYamb;
+        private BoxButton btnFreePoker;
+        private BoxButton btnFreeFull;
+        private BoxButton btnFreeStraight;
+        private BoxButton btnFreePairs;
+        private BoxButton btnFreeSix;
+        private BoxButton btnFreeFive;
+        private BoxButton btnFreeFour;
+        private BoxButton btnFreeThree;
+        private BoxButton btnFreeTwo;
+        private BoxButton btnFreeOne;
         private System.Windows.Forms.Button btnRoll;
         private System.Windows.Forms.Button btnCall;
         private System.Windows.Forms.Label lbRollsLeft;
-        private LabelSum labelSum1;
-        private LabelSum labelSum2;
-        private LabelSum labelSum3;
-        private LabelSum labelSum4;
-        private LabelSum lbCallMinMax;
-        private LabelSum lbFreeMinMax;
-        private LabelSum lbUpMinMax;
-        private LabelSum lbDownMinMax;
-        private LabelSum labelSum9;
-        private LabelSum labelSum10;
-        private LabelSum labelSum11;
-        private LabelSum labelSum12;
+        private SumLabel labelSum1;
+        private SumLabel labelSum2;
+        private SumLabel labelSum3;
+        private SumLabel labelSum4;
+        private SumLabel lbCallMinMax;
+        private SumLabel lbFreeMinMax;
+        private SumLabel lbUpMinMax;
+        private SumLabel lbDownMinMax;
+        private SumLabel labelSum9;
+        private SumLabel labelSum10;
+        private SumLabel labelSum11;
+        private SumLabel labelSum12;
         private System.Windows.Forms.Label lblTotal;
     }
 }

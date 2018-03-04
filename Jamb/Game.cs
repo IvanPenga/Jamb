@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Jamb
 {
-    class Game
+    static class Game
     {
         public static event SimpleDelegate OnNextRound;
         public static event SimpleDelegate OnRollChanged;
@@ -25,15 +25,15 @@ namespace Jamb
 
         public static void LastMove()
         {
-            Dice.DisableAll();
+            DiceButton.DisableAll();
         }
 
         public static void NextRound()
         {
             RollNumber = 1;
-            Dice.UnlockAll();
-            Dice.EnableAll();
-            Dice.RollAll();
+            DiceButton.UnlockAll();
+            DiceButton.EnableAll();
+            DiceButton.RollAll();
             OnNextRound?.Invoke();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Jamb
 {
-    partial class Dice
+    partial class SumLabel
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,9 @@
         {
             this.SuspendLayout();
             // 
-            // Dice
+            // LabelSum
             // 
-            this.Click += new System.EventHandler(this.Dice_Click);
+            this.Text = "0";
             this.ResumeLayout(false);
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace Jamb
 {
-    partial class Box
+    partial class BoxButton
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Jamb
 {
-    public partial class Box : Button
+    public partial class BoxButton : Button
     {
-        public static List<Box> Boxes = new List<Box>();
+        public static List<BoxButton> Boxes = new List<BoxButton>();
 
         public Value Value { get; set; }
         public Direction Direction { get; set; }
@@ -24,12 +24,12 @@ namespace Jamb
         private static bool CallsEnabled = false;
 
         public delegate void SimpleDelegate();
-        public delegate void PointDelegate(Box box);
+        public delegate void PointDelegate(BoxButton box);
         public event SimpleDelegate OnCallSelected;
         public event PointDelegate OnPointChanged;
 
 
-        public Box()
+        public BoxButton()
         {
             InitializeComponent();
             Boxes.Add(this);
@@ -43,23 +43,20 @@ namespace Jamb
         
         private void EnableSelectedCall()
         {
-            foreach (Box box in Boxes.Where(box => box.Direction == Direction.Call))
+            foreach (BoxButton box in Boxes.Where(box => box.Direction == Direction.Call))
             {
                 box.Enabled = false;
             }
             this.Enabled = true;
-            CallsEnabled = false;
             OnCallSelected?.Invoke();
         }
-
-
-
 
         private void Box_Click(object sender, EventArgs e)
         {
             if (CallsEnabled)
             {
                 EnableSelectedCall();
+                CallsEnabled = false;
                 this.Box_MouseEnter(sender,e);
             }
             else
@@ -71,10 +68,23 @@ namespace Jamb
                 this.Enabled = false;
                 Checked = true;
                 Game.NextRound();
-                Points = int.Parse(this.Text);
+                SetPoints();
                 OnPointChanged?.Invoke(this);
                 UnlockNext();
             }
+        }
+
+        private void SetPoints()
+        {
+            try
+            {
+                Points = int.Parse(this.Text);
+            }
+            catch(Exception e)
+            {
+                Points = Rules.EvaluateBoxValue(this.Value);
+            }
+            this.Text = Points.ToString();
         }
 
 
@@ -85,7 +95,7 @@ namespace Jamb
 
         public void UnlockNext()
         {
-            foreach (Box box in Boxes)
+            foreach (BoxButton box in Boxes)
             {
                 if (this.Direction == Direction.Down && box.Direction == Direction.Down && box.Value == Value + 1)
                 {
@@ -100,24 +110,30 @@ namespace Jamb
             }
         }
 
-        public static void ReturnTempClosed()
+        public static void DisableCalls()
         {
-            foreach (Box box in Boxes.Where(box => box.Direction == Direction.Call))
+            CallsEnabled = false;
+            ReturnTempClosed();
+        }
+
+        private static void ReturnTempClosed()
+        {
+            foreach (BoxButton box in Boxes.Where(box => box.Direction == Direction.Call))
             {
                 box.Enabled = false;
             }
-            foreach (Box box in tempClosed)
+            foreach (BoxButton box in tempClosed)
             {
                 box.Enabled = true;
             }
             tempClosed.Clear();
         }
 
-        private static List<Box> tempClosed = new List<Box>();
+        private static List<BoxButton> tempClosed = new List<BoxButton>();
 
         public static void EnableCalls()
         {
-            foreach (Box box in Boxes)
+            foreach (BoxButton box in Boxes)
             {
                 if (box.Direction == Direction.Call && box.Checked == false)
                 {
@@ -136,8 +152,8 @@ namespace Jamb
         {
             if (this.Enabled && !CallsEnabled)
             {
-                this.Text = Rules.EvaluateBoxValue(this.Value).ToString();
-                
+                Points = Rules.EvaluateBoxValue(this.Value);
+                this.Text = Points.ToString();
             }
         }
 

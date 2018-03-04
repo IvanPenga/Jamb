@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Jamb
 {
-    public partial class LabelSum : Label
+    public partial class SumLabel : Label
     {
         public Direction Direction { get; set; }
         public Category Category { get; set; }
@@ -21,7 +21,7 @@ namespace Jamb
         private int max = -1;
         private int min = -1;
 
-        public LabelSum()
+        public SumLabel()
         {
             InitializeComponent();            
             this.Value = 0;
@@ -32,7 +32,7 @@ namespace Jamb
             base.OnPaint(pe);
         }
 
-        public void SumMinMax(Box box)
+        public void SumMinMax(BoxButton box)
         {
             switch (box.Value)
             {

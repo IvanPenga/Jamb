@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Jamb
 {
-    class Rules
+    static class Rules
     {
         private const int PairsExtraPoints = 10;
         private const int FullExtraPoints = 30;
@@ -15,13 +15,13 @@ namespace Jamb
 
         public static int SumAll()
         {
-            return Dice.Dices.Sum(dice => dice.Number);
+            return DiceButton.Dices.Sum(dice => dice.Number);
         }
 
         //sum numbers of the same kind
         public static int SumNumbers(int number)
         {
-            return Dice.Dices.Where(dice => dice.Number == number).Sum(dice => dice.Number);
+            return DiceButton.Dices.Where(dice => dice.Number == number).Sum(dice => dice.Number);
         }
 
         public static int SumPair()
@@ -30,7 +30,7 @@ namespace Jamb
             int pairs = 0;
             for (int i = 1; i < 7; i++)
             {
-                int count = Dice.Dices.Count(dice => dice.Number == i);
+                int count = DiceButton.Dices.Count(dice => dice.Number == i);
                 if (count == 4 || count == 5)
                 {
                     return 4 * i;
@@ -49,13 +49,13 @@ namespace Jamb
 
         public static int SumStraight()
         {
-            if (Dice.Dices.Exists(dice => dice.Number == 2))
-                if (Dice.Dices.Exists(dice => dice.Number == 3))
-                    if (Dice.Dices.Exists(dice => dice.Number == 4))
-                        if (Dice.Dices.Exists(dice => dice.Number == 5))
-                            if (Dice.Dices.Exists(dice => dice.Number == 6))
+            if (DiceButton.Dices.Exists(dice => dice.Number == 2))
+                if (DiceButton.Dices.Exists(dice => dice.Number == 3))
+                    if (DiceButton.Dices.Exists(dice => dice.Number == 4))
+                        if (DiceButton.Dices.Exists(dice => dice.Number == 5))
+                            if (DiceButton.Dices.Exists(dice => dice.Number == 6))
                                 return 45;
-                            else if (Dice.Dices.Exists(dice => dice.Number == 1))
+                            else if (DiceButton.Dices.Exists(dice => dice.Number == 1))
                                 return 35;
             return 0;
         }
@@ -67,7 +67,7 @@ namespace Jamb
             bool three = false;
             for (int i = 1; i < 7; i++)
             {
-                int cnt = Dice.Dices.Count(dice => dice.Number == i);
+                int cnt = DiceButton.Dices.Count(dice => dice.Number == i);
                 if (cnt == 5)
                 {
                     return SumAll();
@@ -94,7 +94,7 @@ namespace Jamb
         {
             for (int i = 1; i < 7; i++)
             {
-                int cnt = Dice.Dices.Count(dice => dice.Number == i);
+                int cnt = DiceButton.Dices.Count(dice => dice.Number == i);
                 if (cnt == 4 || cnt == 5)
                 {
                     return (4 * i) + PokerExtraPoints;
@@ -105,9 +105,9 @@ namespace Jamb
 
         public static int SumYamb()
         {
-            for (int i = 1; i < Dice.Dices.Count; i++)
+            for (int i = 1; i < DiceButton.Dices.Count; i++)
             {
-                if (Dice.Dices[i].Number != Dice.Dices[0].Number)
+                if (DiceButton.Dices[i].Number != DiceButton.Dices[0].Number)
                 {
                     return 0;
                 }

@@ -10,17 +10,14 @@ using System.Windows.Forms;
 
 namespace Jamb
 {
-    public partial class Dice : Button
+    public partial class DiceButton : Button
     {
-
         public int  Number { get; private set; }
         private bool Locked { get; set; }
-        public static List<Dice> Dices = new List<Dice>();
+        public static List<DiceButton> Dices = new List<DiceButton>();
         private static Random random = new Random();
 
-        
-
-        public Dice()
+        public DiceButton()
         {
             InitializeComponent();
             Dices.Add(this);
@@ -33,7 +30,7 @@ namespace Jamb
 
         public static void DisableAll()
         {
-            foreach (Dice dice in Dices)
+            foreach (DiceButton dice in Dices)
             {
                 dice.Enabled = false;
             }
@@ -41,7 +38,7 @@ namespace Jamb
 
         public static void EnableAll()
         {
-            foreach (Dice dice in Dices)
+            foreach (DiceButton dice in Dices)
             {
                 dice.Enabled = true;
             }
@@ -55,7 +52,7 @@ namespace Jamb
 
         public static void UnlockAll()
         {
-            foreach (Dice dice in Dices)
+            foreach (DiceButton dice in Dices)
             {
                 dice.Enabled = true;
                 dice.Locked = false;
@@ -81,7 +78,7 @@ namespace Jamb
 
         public static void RollAll()
         {
-            foreach (Dice dice in Dice.Dices)
+            foreach (DiceButton dice in DiceButton.Dices)
             {
                 if (!dice.Locked)
                 {

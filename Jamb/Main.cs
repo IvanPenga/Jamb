@@ -10,15 +10,18 @@ using System.Windows.Forms;
 
 namespace Jamb
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+
+        private bool CallsEnabled = false;
+
+        public Main()
         {
             InitializeComponent();
             Game.OnNextRound += Game_OnNextRound;
             Game.OnRollChanged += Game_OnRollChanged;
             
-            Dice.RollAll();
+            DiceButton.RollAll();
         }
 
         private void Game_OnRollChanged()
@@ -42,7 +45,7 @@ namespace Jamb
 
         private void btnRoll_Click(object sender, EventArgs e)
         {
-            Dice.RollAll();
+            DiceButton.RollAll();
             Game.RollNumber++;
         }
 
@@ -50,20 +53,41 @@ namespace Jamb
 
         private void btnCall_Click(object sender, EventArgs e)
         {
-            Box.EnableCalls();
-            btnCall.Enabled = false;
+            if (!CallsEnabled)
+            {
+                EnableCalls();
+            }
+            else
+            {
+                DisableCalls();
+            }
+        }
+
+        private void EnableCalls()
+        {
+            CallsEnabled = true;
+            BoxButton.EnableCalls();
             btnRoll.Enabled = false;
+        }
+
+        private void DisableCalls()
+        {
+            CallsEnabled = false;
+            BoxButton.DisableCalls();
+            btnRoll.Enabled = true;
         }
 
         private void OnCallSelected()
         {
             btnRoll.Enabled = true;
+            btnCall.Enabled = false;
+            CallsEnabled = false;
         }
 
-        private void OnBoxPointsChanged(Box box)
+        private void OnBoxPointsChanged(BoxButton box)
         {
 
-            foreach (LabelSum sumLabel in this.Controls.OfType<LabelSum>())
+            foreach (SumLabel sumLabel in this.Controls.OfType<SumLabel>())
             {
                 
                 if (sumLabel.Category == Category.Numbers && box.Category == Category.Numbers)
@@ -90,7 +114,7 @@ namespace Jamb
                 }
 
             }
-            lblTotal.Text = "Total: " + LabelSum.Total.ToString();
+            lblTotal.Text = "Total: " + SumLabel.Total.ToString();
 
         }
 
