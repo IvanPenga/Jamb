@@ -12,7 +12,7 @@ namespace Jamb
 {
     public partial class DiceButton : Button
     {
-        public int  Number { get; private set; }
+        public int Number { get; private set; }
         private bool Locked { get; set; }
         public static List<DiceButton> Dices = new List<DiceButton>();
         private static Random random = new Random();
@@ -67,6 +67,7 @@ namespace Jamb
 
         public void Roll()
         {
+            
             this.Number = random.Next(1,7);
             this.Text = this.Number.ToString();
         }
@@ -86,7 +87,7 @@ namespace Jamb
                 }
             }
         }
-
+        
 
         
     }

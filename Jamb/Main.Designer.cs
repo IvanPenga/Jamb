@@ -49,6 +49,8 @@
             this.btnRoll = new System.Windows.Forms.Button();
             this.lbRollsLeft = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.historyStatus = new System.Windows.Forms.StatusStrip();
+            this.historyStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.labelSum9 = new Jamb.SumLabel();
             this.labelSum10 = new Jamb.SumLabel();
             this.labelSum11 = new Jamb.SumLabel();
@@ -118,6 +120,7 @@
             this.btnDownThree = new Jamb.BoxButton();
             this.btnDownTwo = new Jamb.BoxButton();
             this.btnDownOne = new Jamb.BoxButton();
+            this.historyStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -132,6 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(183, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(26, 17);
@@ -310,6 +314,23 @@
             this.lblTotal.Size = new System.Drawing.Size(56, 17);
             this.lblTotal.TabIndex = 97;
             this.lblTotal.Text = "Total: 0";
+            // 
+            // historyStatus
+            // 
+            this.historyStatus.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.historyStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.historyStatusLabel});
+            this.historyStatus.Location = new System.Drawing.Point(0, 564);
+            this.historyStatus.Name = "historyStatus";
+            this.historyStatus.Size = new System.Drawing.Size(790, 25);
+            this.historyStatus.TabIndex = 98;
+            this.historyStatus.Text = "statusStrip1";
+            // 
+            // historyStatusLabel
+            // 
+            this.historyStatusLabel.Name = "historyStatusLabel";
+            this.historyStatusLabel.Size = new System.Drawing.Size(56, 20);
+            this.historyStatusLabel.Text = "History";
             // 
             // labelSum9
             // 
@@ -507,735 +528,855 @@
             // 
             // btnCallMin
             // 
+            this.btnCallMin.BackColor = System.Drawing.Color.Gray;
             this.btnCallMin.Category = Jamb.Category.MinMax;
             this.btnCallMin.Direction = Jamb.Direction.Call;
-            this.btnCallMin.Enabled = false;
             this.btnCallMin.Location = new System.Drawing.Point(310, 305);
             this.btnCallMin.Name = "btnCallMin";
+            this.btnCallMin.Open = false;
             this.btnCallMin.Points = 0;
             this.btnCallMin.Size = new System.Drawing.Size(65, 29);
             this.btnCallMin.TabIndex = 52;
-            this.btnCallMin.UseVisualStyleBackColor = true;
+            this.btnCallMin.UseVisualStyleBackColor = false;
             this.btnCallMin.Value = Jamb.Value.Min;
             this.btnCallMin.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallMin.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallMin.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallMax
             // 
+            this.btnCallMax.BackColor = System.Drawing.Color.Gray;
             this.btnCallMax.Category = Jamb.Category.MinMax;
             this.btnCallMax.Direction = Jamb.Direction.Call;
-            this.btnCallMax.Enabled = false;
             this.btnCallMax.Location = new System.Drawing.Point(310, 270);
             this.btnCallMax.Name = "btnCallMax";
+            this.btnCallMax.Open = false;
             this.btnCallMax.Points = 0;
             this.btnCallMax.Size = new System.Drawing.Size(65, 29);
             this.btnCallMax.TabIndex = 51;
-            this.btnCallMax.UseVisualStyleBackColor = true;
+            this.btnCallMax.UseVisualStyleBackColor = false;
             this.btnCallMax.Value = Jamb.Value.Max;
             this.btnCallMax.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallMax.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallMax.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallYamb
             // 
+            this.btnCallYamb.BackColor = System.Drawing.Color.Gray;
             this.btnCallYamb.Category = Jamb.Category.Hands;
             this.btnCallYamb.Direction = Jamb.Direction.Call;
-            this.btnCallYamb.Enabled = false;
             this.btnCallYamb.Location = new System.Drawing.Point(309, 507);
             this.btnCallYamb.Name = "btnCallYamb";
+            this.btnCallYamb.Open = false;
             this.btnCallYamb.Points = 0;
             this.btnCallYamb.Size = new System.Drawing.Size(65, 29);
             this.btnCallYamb.TabIndex = 50;
-            this.btnCallYamb.UseVisualStyleBackColor = true;
+            this.btnCallYamb.UseVisualStyleBackColor = false;
             this.btnCallYamb.Value = Jamb.Value.Yamb;
             this.btnCallYamb.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallYamb.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallYamb.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallPoker
             // 
+            this.btnCallPoker.BackColor = System.Drawing.Color.Gray;
             this.btnCallPoker.Category = Jamb.Category.Hands;
             this.btnCallPoker.Direction = Jamb.Direction.Call;
-            this.btnCallPoker.Enabled = false;
             this.btnCallPoker.Location = new System.Drawing.Point(309, 472);
             this.btnCallPoker.Name = "btnCallPoker";
+            this.btnCallPoker.Open = false;
             this.btnCallPoker.Points = 0;
             this.btnCallPoker.Size = new System.Drawing.Size(65, 29);
             this.btnCallPoker.TabIndex = 49;
-            this.btnCallPoker.UseVisualStyleBackColor = true;
+            this.btnCallPoker.UseVisualStyleBackColor = false;
             this.btnCallPoker.Value = Jamb.Value.Poker;
             this.btnCallPoker.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallPoker.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallPoker.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallFull
             // 
+            this.btnCallFull.BackColor = System.Drawing.Color.Gray;
             this.btnCallFull.Category = Jamb.Category.Hands;
             this.btnCallFull.Direction = Jamb.Direction.Call;
-            this.btnCallFull.Enabled = false;
             this.btnCallFull.Location = new System.Drawing.Point(309, 437);
             this.btnCallFull.Name = "btnCallFull";
+            this.btnCallFull.Open = false;
             this.btnCallFull.Points = 0;
             this.btnCallFull.Size = new System.Drawing.Size(65, 29);
             this.btnCallFull.TabIndex = 48;
-            this.btnCallFull.UseVisualStyleBackColor = true;
+            this.btnCallFull.UseVisualStyleBackColor = false;
             this.btnCallFull.Value = Jamb.Value.Full;
             this.btnCallFull.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallFull.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallFull.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallStraight
             // 
+            this.btnCallStraight.BackColor = System.Drawing.Color.Gray;
             this.btnCallStraight.Category = Jamb.Category.Hands;
             this.btnCallStraight.Direction = Jamb.Direction.Call;
-            this.btnCallStraight.Enabled = false;
             this.btnCallStraight.Location = new System.Drawing.Point(309, 402);
             this.btnCallStraight.Name = "btnCallStraight";
+            this.btnCallStraight.Open = false;
             this.btnCallStraight.Points = 0;
             this.btnCallStraight.Size = new System.Drawing.Size(65, 29);
             this.btnCallStraight.TabIndex = 47;
-            this.btnCallStraight.UseVisualStyleBackColor = true;
+            this.btnCallStraight.UseVisualStyleBackColor = false;
             this.btnCallStraight.Value = Jamb.Value.Straight;
             this.btnCallStraight.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallStraight.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallStraight.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallPairs
             // 
+            this.btnCallPairs.BackColor = System.Drawing.Color.Gray;
             this.btnCallPairs.Category = Jamb.Category.Hands;
             this.btnCallPairs.Direction = Jamb.Direction.Call;
-            this.btnCallPairs.Enabled = false;
             this.btnCallPairs.Location = new System.Drawing.Point(309, 367);
             this.btnCallPairs.Name = "btnCallPairs";
+            this.btnCallPairs.Open = false;
             this.btnCallPairs.Points = 0;
             this.btnCallPairs.Size = new System.Drawing.Size(65, 29);
             this.btnCallPairs.TabIndex = 46;
-            this.btnCallPairs.UseVisualStyleBackColor = true;
+            this.btnCallPairs.UseVisualStyleBackColor = false;
             this.btnCallPairs.Value = Jamb.Value.Pair;
             this.btnCallPairs.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallPairs.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallPairs.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallSix
             // 
+            this.btnCallSix.BackColor = System.Drawing.Color.Gray;
             this.btnCallSix.Category = Jamb.Category.Numbers;
             this.btnCallSix.Direction = Jamb.Direction.Call;
-            this.btnCallSix.Enabled = false;
             this.btnCallSix.Location = new System.Drawing.Point(310, 215);
             this.btnCallSix.Name = "btnCallSix";
+            this.btnCallSix.Open = false;
             this.btnCallSix.Points = 0;
             this.btnCallSix.Size = new System.Drawing.Size(65, 29);
             this.btnCallSix.TabIndex = 45;
-            this.btnCallSix.UseVisualStyleBackColor = true;
+            this.btnCallSix.UseVisualStyleBackColor = false;
             this.btnCallSix.Value = Jamb.Value.Six;
             this.btnCallSix.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallSix.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallSix.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallFive
             // 
+            this.btnCallFive.BackColor = System.Drawing.Color.Gray;
             this.btnCallFive.Category = Jamb.Category.Numbers;
             this.btnCallFive.Direction = Jamb.Direction.Call;
-            this.btnCallFive.Enabled = false;
             this.btnCallFive.Location = new System.Drawing.Point(310, 180);
             this.btnCallFive.Name = "btnCallFive";
+            this.btnCallFive.Open = false;
             this.btnCallFive.Points = 0;
             this.btnCallFive.Size = new System.Drawing.Size(65, 29);
             this.btnCallFive.TabIndex = 44;
-            this.btnCallFive.UseVisualStyleBackColor = true;
+            this.btnCallFive.UseVisualStyleBackColor = false;
             this.btnCallFive.Value = Jamb.Value.Five;
             this.btnCallFive.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallFive.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallFive.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallFour
             // 
+            this.btnCallFour.BackColor = System.Drawing.Color.Gray;
             this.btnCallFour.Category = Jamb.Category.Numbers;
             this.btnCallFour.Direction = Jamb.Direction.Call;
-            this.btnCallFour.Enabled = false;
             this.btnCallFour.Location = new System.Drawing.Point(310, 145);
             this.btnCallFour.Name = "btnCallFour";
+            this.btnCallFour.Open = false;
             this.btnCallFour.Points = 0;
             this.btnCallFour.Size = new System.Drawing.Size(65, 29);
             this.btnCallFour.TabIndex = 43;
-            this.btnCallFour.UseVisualStyleBackColor = true;
+            this.btnCallFour.UseVisualStyleBackColor = false;
             this.btnCallFour.Value = Jamb.Value.Four;
             this.btnCallFour.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallFour.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallFour.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallThree
             // 
+            this.btnCallThree.BackColor = System.Drawing.Color.Gray;
             this.btnCallThree.Category = Jamb.Category.Numbers;
             this.btnCallThree.Direction = Jamb.Direction.Call;
-            this.btnCallThree.Enabled = false;
             this.btnCallThree.Location = new System.Drawing.Point(310, 110);
             this.btnCallThree.Name = "btnCallThree";
+            this.btnCallThree.Open = false;
             this.btnCallThree.Points = 0;
             this.btnCallThree.Size = new System.Drawing.Size(65, 29);
             this.btnCallThree.TabIndex = 42;
-            this.btnCallThree.UseVisualStyleBackColor = true;
+            this.btnCallThree.UseVisualStyleBackColor = false;
             this.btnCallThree.Value = Jamb.Value.Three;
             this.btnCallThree.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallThree.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallThree.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallTwo
             // 
+            this.btnCallTwo.BackColor = System.Drawing.Color.Gray;
             this.btnCallTwo.Category = Jamb.Category.Numbers;
             this.btnCallTwo.Direction = Jamb.Direction.Call;
-            this.btnCallTwo.Enabled = false;
             this.btnCallTwo.Location = new System.Drawing.Point(310, 75);
             this.btnCallTwo.Name = "btnCallTwo";
+            this.btnCallTwo.Open = false;
             this.btnCallTwo.Points = 0;
             this.btnCallTwo.Size = new System.Drawing.Size(65, 29);
             this.btnCallTwo.TabIndex = 41;
-            this.btnCallTwo.UseVisualStyleBackColor = true;
+            this.btnCallTwo.UseVisualStyleBackColor = false;
             this.btnCallTwo.Value = Jamb.Value.Two;
             this.btnCallTwo.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallTwo.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallTwo.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnCallOne
             // 
+            this.btnCallOne.BackColor = System.Drawing.Color.Gray;
             this.btnCallOne.Category = Jamb.Category.Numbers;
             this.btnCallOne.Direction = Jamb.Direction.Call;
-            this.btnCallOne.Enabled = false;
             this.btnCallOne.Location = new System.Drawing.Point(310, 40);
             this.btnCallOne.Name = "btnCallOne";
+            this.btnCallOne.Open = false;
             this.btnCallOne.Points = 0;
             this.btnCallOne.Size = new System.Drawing.Size(65, 29);
             this.btnCallOne.TabIndex = 40;
-            this.btnCallOne.UseVisualStyleBackColor = true;
+            this.btnCallOne.UseVisualStyleBackColor = false;
             this.btnCallOne.Value = Jamb.Value.One;
             this.btnCallOne.OnCallSelected += new Jamb.BoxButton.SimpleDelegate(this.OnCallSelected);
             this.btnCallOne.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnCallOne.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeMin
             // 
+            this.btnFreeMin.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeMin.Category = Jamb.Category.MinMax;
             this.btnFreeMin.Direction = Jamb.Direction.Free;
             this.btnFreeMin.Location = new System.Drawing.Point(239, 305);
             this.btnFreeMin.Name = "btnFreeMin";
+            this.btnFreeMin.Open = true;
             this.btnFreeMin.Points = 0;
             this.btnFreeMin.Size = new System.Drawing.Size(65, 29);
             this.btnFreeMin.TabIndex = 39;
-            this.btnFreeMin.UseVisualStyleBackColor = true;
+            this.btnFreeMin.UseVisualStyleBackColor = false;
             this.btnFreeMin.Value = Jamb.Value.Min;
             this.btnFreeMin.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeMin.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeMax
             // 
+            this.btnFreeMax.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeMax.Category = Jamb.Category.MinMax;
             this.btnFreeMax.Direction = Jamb.Direction.Free;
             this.btnFreeMax.Location = new System.Drawing.Point(239, 270);
             this.btnFreeMax.Name = "btnFreeMax";
+            this.btnFreeMax.Open = true;
             this.btnFreeMax.Points = 0;
             this.btnFreeMax.Size = new System.Drawing.Size(65, 29);
             this.btnFreeMax.TabIndex = 38;
-            this.btnFreeMax.UseVisualStyleBackColor = true;
+            this.btnFreeMax.UseVisualStyleBackColor = false;
             this.btnFreeMax.Value = Jamb.Value.Max;
             this.btnFreeMax.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeMax.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeYamb
             // 
+            this.btnFreeYamb.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeYamb.Category = Jamb.Category.Hands;
             this.btnFreeYamb.Direction = Jamb.Direction.Free;
             this.btnFreeYamb.Location = new System.Drawing.Point(238, 507);
             this.btnFreeYamb.Name = "btnFreeYamb";
+            this.btnFreeYamb.Open = true;
             this.btnFreeYamb.Points = 0;
             this.btnFreeYamb.Size = new System.Drawing.Size(65, 29);
             this.btnFreeYamb.TabIndex = 37;
-            this.btnFreeYamb.UseVisualStyleBackColor = true;
+            this.btnFreeYamb.UseVisualStyleBackColor = false;
             this.btnFreeYamb.Value = Jamb.Value.Yamb;
             this.btnFreeYamb.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeYamb.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreePoker
             // 
+            this.btnFreePoker.BackColor = System.Drawing.Color.LightGray;
             this.btnFreePoker.Category = Jamb.Category.Hands;
             this.btnFreePoker.Direction = Jamb.Direction.Free;
             this.btnFreePoker.Location = new System.Drawing.Point(238, 472);
             this.btnFreePoker.Name = "btnFreePoker";
+            this.btnFreePoker.Open = true;
             this.btnFreePoker.Points = 0;
             this.btnFreePoker.Size = new System.Drawing.Size(65, 29);
             this.btnFreePoker.TabIndex = 36;
-            this.btnFreePoker.UseVisualStyleBackColor = true;
+            this.btnFreePoker.UseVisualStyleBackColor = false;
             this.btnFreePoker.Value = Jamb.Value.Poker;
             this.btnFreePoker.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreePoker.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeFull
             // 
+            this.btnFreeFull.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeFull.Category = Jamb.Category.Hands;
             this.btnFreeFull.Direction = Jamb.Direction.Free;
             this.btnFreeFull.Location = new System.Drawing.Point(238, 437);
             this.btnFreeFull.Name = "btnFreeFull";
+            this.btnFreeFull.Open = true;
             this.btnFreeFull.Points = 0;
             this.btnFreeFull.Size = new System.Drawing.Size(65, 29);
             this.btnFreeFull.TabIndex = 35;
-            this.btnFreeFull.UseVisualStyleBackColor = true;
+            this.btnFreeFull.UseVisualStyleBackColor = false;
             this.btnFreeFull.Value = Jamb.Value.Full;
             this.btnFreeFull.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeFull.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeStraight
             // 
+            this.btnFreeStraight.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeStraight.Category = Jamb.Category.Hands;
             this.btnFreeStraight.Direction = Jamb.Direction.Free;
             this.btnFreeStraight.Location = new System.Drawing.Point(238, 402);
             this.btnFreeStraight.Name = "btnFreeStraight";
+            this.btnFreeStraight.Open = true;
             this.btnFreeStraight.Points = 0;
             this.btnFreeStraight.Size = new System.Drawing.Size(65, 29);
             this.btnFreeStraight.TabIndex = 34;
-            this.btnFreeStraight.UseVisualStyleBackColor = true;
+            this.btnFreeStraight.UseVisualStyleBackColor = false;
             this.btnFreeStraight.Value = Jamb.Value.Straight;
             this.btnFreeStraight.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeStraight.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreePairs
             // 
+            this.btnFreePairs.BackColor = System.Drawing.Color.LightGray;
             this.btnFreePairs.Category = Jamb.Category.Hands;
             this.btnFreePairs.Direction = Jamb.Direction.Free;
             this.btnFreePairs.Location = new System.Drawing.Point(238, 367);
             this.btnFreePairs.Name = "btnFreePairs";
+            this.btnFreePairs.Open = true;
             this.btnFreePairs.Points = 0;
             this.btnFreePairs.Size = new System.Drawing.Size(65, 29);
             this.btnFreePairs.TabIndex = 33;
-            this.btnFreePairs.UseVisualStyleBackColor = true;
+            this.btnFreePairs.UseVisualStyleBackColor = false;
             this.btnFreePairs.Value = Jamb.Value.Pair;
             this.btnFreePairs.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreePairs.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeSix
             // 
+            this.btnFreeSix.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeSix.Category = Jamb.Category.Numbers;
             this.btnFreeSix.Direction = Jamb.Direction.Free;
             this.btnFreeSix.Location = new System.Drawing.Point(239, 215);
             this.btnFreeSix.Name = "btnFreeSix";
+            this.btnFreeSix.Open = true;
             this.btnFreeSix.Points = 0;
             this.btnFreeSix.Size = new System.Drawing.Size(65, 29);
             this.btnFreeSix.TabIndex = 32;
-            this.btnFreeSix.UseVisualStyleBackColor = true;
+            this.btnFreeSix.UseVisualStyleBackColor = false;
             this.btnFreeSix.Value = Jamb.Value.Six;
             this.btnFreeSix.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeSix.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeFive
             // 
+            this.btnFreeFive.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeFive.Category = Jamb.Category.Numbers;
             this.btnFreeFive.Direction = Jamb.Direction.Free;
             this.btnFreeFive.Location = new System.Drawing.Point(239, 180);
             this.btnFreeFive.Name = "btnFreeFive";
+            this.btnFreeFive.Open = true;
             this.btnFreeFive.Points = 0;
             this.btnFreeFive.Size = new System.Drawing.Size(65, 29);
             this.btnFreeFive.TabIndex = 31;
-            this.btnFreeFive.UseVisualStyleBackColor = true;
+            this.btnFreeFive.UseVisualStyleBackColor = false;
             this.btnFreeFive.Value = Jamb.Value.Five;
             this.btnFreeFive.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeFive.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeFour
             // 
+            this.btnFreeFour.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeFour.Category = Jamb.Category.Numbers;
             this.btnFreeFour.Direction = Jamb.Direction.Free;
             this.btnFreeFour.Location = new System.Drawing.Point(239, 145);
             this.btnFreeFour.Name = "btnFreeFour";
+            this.btnFreeFour.Open = true;
             this.btnFreeFour.Points = 0;
             this.btnFreeFour.Size = new System.Drawing.Size(65, 29);
             this.btnFreeFour.TabIndex = 30;
-            this.btnFreeFour.UseVisualStyleBackColor = true;
+            this.btnFreeFour.UseVisualStyleBackColor = false;
             this.btnFreeFour.Value = Jamb.Value.Four;
             this.btnFreeFour.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeFour.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeThree
             // 
+            this.btnFreeThree.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeThree.Category = Jamb.Category.Numbers;
             this.btnFreeThree.Direction = Jamb.Direction.Free;
             this.btnFreeThree.Location = new System.Drawing.Point(239, 110);
             this.btnFreeThree.Name = "btnFreeThree";
+            this.btnFreeThree.Open = true;
             this.btnFreeThree.Points = 0;
             this.btnFreeThree.Size = new System.Drawing.Size(65, 29);
             this.btnFreeThree.TabIndex = 29;
-            this.btnFreeThree.UseVisualStyleBackColor = true;
+            this.btnFreeThree.UseVisualStyleBackColor = false;
             this.btnFreeThree.Value = Jamb.Value.Three;
             this.btnFreeThree.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeThree.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeTwo
             // 
+            this.btnFreeTwo.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeTwo.Category = Jamb.Category.Numbers;
             this.btnFreeTwo.Direction = Jamb.Direction.Free;
             this.btnFreeTwo.Location = new System.Drawing.Point(239, 75);
             this.btnFreeTwo.Name = "btnFreeTwo";
+            this.btnFreeTwo.Open = true;
             this.btnFreeTwo.Points = 0;
             this.btnFreeTwo.Size = new System.Drawing.Size(65, 29);
             this.btnFreeTwo.TabIndex = 28;
-            this.btnFreeTwo.UseVisualStyleBackColor = true;
+            this.btnFreeTwo.UseVisualStyleBackColor = false;
             this.btnFreeTwo.Value = Jamb.Value.Two;
             this.btnFreeTwo.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeTwo.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnFreeOne
             // 
+            this.btnFreeOne.BackColor = System.Drawing.Color.LightGray;
             this.btnFreeOne.Category = Jamb.Category.Numbers;
             this.btnFreeOne.Direction = Jamb.Direction.Free;
             this.btnFreeOne.Location = new System.Drawing.Point(239, 40);
             this.btnFreeOne.Name = "btnFreeOne";
+            this.btnFreeOne.Open = true;
             this.btnFreeOne.Points = 0;
             this.btnFreeOne.Size = new System.Drawing.Size(65, 29);
             this.btnFreeOne.TabIndex = 27;
-            this.btnFreeOne.UseVisualStyleBackColor = true;
+            this.btnFreeOne.UseVisualStyleBackColor = false;
             this.btnFreeOne.Value = Jamb.Value.One;
             this.btnFreeOne.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnFreeOne.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpMin
             // 
+            this.btnUpMin.BackColor = System.Drawing.Color.Gray;
             this.btnUpMin.Category = Jamb.Category.MinMax;
             this.btnUpMin.Direction = Jamb.Direction.Up;
-            this.btnUpMin.Enabled = false;
             this.btnUpMin.Location = new System.Drawing.Point(168, 305);
             this.btnUpMin.Name = "btnUpMin";
+            this.btnUpMin.Open = false;
             this.btnUpMin.Points = 0;
             this.btnUpMin.Size = new System.Drawing.Size(65, 29);
             this.btnUpMin.TabIndex = 26;
-            this.btnUpMin.UseVisualStyleBackColor = true;
+            this.btnUpMin.UseVisualStyleBackColor = false;
             this.btnUpMin.Value = Jamb.Value.Min;
             this.btnUpMin.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpMin.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpMax
             // 
+            this.btnUpMax.BackColor = System.Drawing.Color.Gray;
             this.btnUpMax.Category = Jamb.Category.MinMax;
             this.btnUpMax.Direction = Jamb.Direction.Up;
-            this.btnUpMax.Enabled = false;
             this.btnUpMax.Location = new System.Drawing.Point(168, 270);
             this.btnUpMax.Name = "btnUpMax";
+            this.btnUpMax.Open = false;
             this.btnUpMax.Points = 0;
             this.btnUpMax.Size = new System.Drawing.Size(65, 29);
             this.btnUpMax.TabIndex = 25;
-            this.btnUpMax.UseVisualStyleBackColor = true;
+            this.btnUpMax.UseVisualStyleBackColor = false;
             this.btnUpMax.Value = Jamb.Value.Max;
             this.btnUpMax.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpMax.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpYamb
             // 
+            this.btnUpYamb.BackColor = System.Drawing.Color.LightGray;
             this.btnUpYamb.Category = Jamb.Category.Hands;
             this.btnUpYamb.Direction = Jamb.Direction.Up;
             this.btnUpYamb.Location = new System.Drawing.Point(167, 507);
             this.btnUpYamb.Name = "btnUpYamb";
+            this.btnUpYamb.Open = true;
             this.btnUpYamb.Points = 0;
             this.btnUpYamb.Size = new System.Drawing.Size(65, 29);
             this.btnUpYamb.TabIndex = 24;
-            this.btnUpYamb.UseVisualStyleBackColor = true;
+            this.btnUpYamb.UseVisualStyleBackColor = false;
             this.btnUpYamb.Value = Jamb.Value.Yamb;
             this.btnUpYamb.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpYamb.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpPoker
             // 
+            this.btnUpPoker.BackColor = System.Drawing.Color.Gray;
             this.btnUpPoker.Category = Jamb.Category.Hands;
             this.btnUpPoker.Direction = Jamb.Direction.Up;
-            this.btnUpPoker.Enabled = false;
             this.btnUpPoker.Location = new System.Drawing.Point(167, 472);
             this.btnUpPoker.Name = "btnUpPoker";
+            this.btnUpPoker.Open = false;
             this.btnUpPoker.Points = 0;
             this.btnUpPoker.Size = new System.Drawing.Size(65, 29);
             this.btnUpPoker.TabIndex = 23;
-            this.btnUpPoker.UseVisualStyleBackColor = true;
+            this.btnUpPoker.UseVisualStyleBackColor = false;
             this.btnUpPoker.Value = Jamb.Value.Poker;
             this.btnUpPoker.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpPoker.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpFull
             // 
+            this.btnUpFull.BackColor = System.Drawing.Color.Gray;
             this.btnUpFull.Category = Jamb.Category.Hands;
             this.btnUpFull.Direction = Jamb.Direction.Up;
-            this.btnUpFull.Enabled = false;
             this.btnUpFull.Location = new System.Drawing.Point(167, 437);
             this.btnUpFull.Name = "btnUpFull";
+            this.btnUpFull.Open = false;
             this.btnUpFull.Points = 0;
             this.btnUpFull.Size = new System.Drawing.Size(65, 29);
             this.btnUpFull.TabIndex = 22;
-            this.btnUpFull.UseVisualStyleBackColor = true;
+            this.btnUpFull.UseVisualStyleBackColor = false;
             this.btnUpFull.Value = Jamb.Value.Full;
             this.btnUpFull.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpFull.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpStraight
             // 
+            this.btnUpStraight.BackColor = System.Drawing.Color.Gray;
             this.btnUpStraight.Category = Jamb.Category.Hands;
             this.btnUpStraight.Direction = Jamb.Direction.Up;
-            this.btnUpStraight.Enabled = false;
             this.btnUpStraight.Location = new System.Drawing.Point(167, 402);
             this.btnUpStraight.Name = "btnUpStraight";
+            this.btnUpStraight.Open = false;
             this.btnUpStraight.Points = 0;
             this.btnUpStraight.Size = new System.Drawing.Size(65, 29);
             this.btnUpStraight.TabIndex = 21;
-            this.btnUpStraight.UseVisualStyleBackColor = true;
+            this.btnUpStraight.UseVisualStyleBackColor = false;
             this.btnUpStraight.Value = Jamb.Value.Straight;
             this.btnUpStraight.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpStraight.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpPairs
             // 
+            this.btnUpPairs.BackColor = System.Drawing.Color.Gray;
             this.btnUpPairs.Category = Jamb.Category.Hands;
             this.btnUpPairs.Direction = Jamb.Direction.Up;
-            this.btnUpPairs.Enabled = false;
             this.btnUpPairs.Location = new System.Drawing.Point(167, 367);
             this.btnUpPairs.Name = "btnUpPairs";
+            this.btnUpPairs.Open = false;
             this.btnUpPairs.Points = 0;
             this.btnUpPairs.Size = new System.Drawing.Size(65, 29);
             this.btnUpPairs.TabIndex = 20;
-            this.btnUpPairs.UseVisualStyleBackColor = true;
+            this.btnUpPairs.UseVisualStyleBackColor = false;
             this.btnUpPairs.Value = Jamb.Value.Pair;
             this.btnUpPairs.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpPairs.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpSix
             // 
+            this.btnUpSix.BackColor = System.Drawing.Color.Gray;
             this.btnUpSix.Category = Jamb.Category.Numbers;
             this.btnUpSix.Direction = Jamb.Direction.Up;
-            this.btnUpSix.Enabled = false;
             this.btnUpSix.Location = new System.Drawing.Point(168, 215);
             this.btnUpSix.Name = "btnUpSix";
+            this.btnUpSix.Open = false;
             this.btnUpSix.Points = 0;
             this.btnUpSix.Size = new System.Drawing.Size(65, 29);
             this.btnUpSix.TabIndex = 19;
-            this.btnUpSix.UseVisualStyleBackColor = true;
+            this.btnUpSix.UseVisualStyleBackColor = false;
             this.btnUpSix.Value = Jamb.Value.Six;
             this.btnUpSix.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpSix.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpFive
             // 
+            this.btnUpFive.BackColor = System.Drawing.Color.Gray;
             this.btnUpFive.Category = Jamb.Category.Numbers;
             this.btnUpFive.Direction = Jamb.Direction.Up;
-            this.btnUpFive.Enabled = false;
             this.btnUpFive.Location = new System.Drawing.Point(168, 180);
             this.btnUpFive.Name = "btnUpFive";
+            this.btnUpFive.Open = false;
             this.btnUpFive.Points = 0;
             this.btnUpFive.Size = new System.Drawing.Size(65, 29);
             this.btnUpFive.TabIndex = 18;
-            this.btnUpFive.UseVisualStyleBackColor = true;
+            this.btnUpFive.UseVisualStyleBackColor = false;
             this.btnUpFive.Value = Jamb.Value.Five;
             this.btnUpFive.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpFive.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpFour
             // 
+            this.btnUpFour.BackColor = System.Drawing.Color.Gray;
             this.btnUpFour.Category = Jamb.Category.Numbers;
             this.btnUpFour.Direction = Jamb.Direction.Up;
-            this.btnUpFour.Enabled = false;
             this.btnUpFour.Location = new System.Drawing.Point(168, 145);
             this.btnUpFour.Name = "btnUpFour";
+            this.btnUpFour.Open = false;
             this.btnUpFour.Points = 0;
             this.btnUpFour.Size = new System.Drawing.Size(65, 29);
             this.btnUpFour.TabIndex = 17;
-            this.btnUpFour.UseVisualStyleBackColor = true;
+            this.btnUpFour.UseVisualStyleBackColor = false;
             this.btnUpFour.Value = Jamb.Value.Four;
             this.btnUpFour.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpFour.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpThree
             // 
+            this.btnUpThree.BackColor = System.Drawing.Color.Gray;
             this.btnUpThree.Category = Jamb.Category.Numbers;
             this.btnUpThree.Direction = Jamb.Direction.Up;
-            this.btnUpThree.Enabled = false;
             this.btnUpThree.Location = new System.Drawing.Point(168, 110);
             this.btnUpThree.Name = "btnUpThree";
+            this.btnUpThree.Open = false;
             this.btnUpThree.Points = 0;
             this.btnUpThree.Size = new System.Drawing.Size(65, 29);
             this.btnUpThree.TabIndex = 16;
-            this.btnUpThree.UseVisualStyleBackColor = true;
+            this.btnUpThree.UseVisualStyleBackColor = false;
             this.btnUpThree.Value = Jamb.Value.Three;
             this.btnUpThree.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpThree.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpTwo
             // 
+            this.btnUpTwo.BackColor = System.Drawing.Color.Gray;
             this.btnUpTwo.Category = Jamb.Category.Numbers;
             this.btnUpTwo.Direction = Jamb.Direction.Up;
-            this.btnUpTwo.Enabled = false;
             this.btnUpTwo.Location = new System.Drawing.Point(168, 75);
             this.btnUpTwo.Name = "btnUpTwo";
+            this.btnUpTwo.Open = false;
             this.btnUpTwo.Points = 0;
             this.btnUpTwo.Size = new System.Drawing.Size(65, 29);
             this.btnUpTwo.TabIndex = 15;
-            this.btnUpTwo.UseVisualStyleBackColor = true;
+            this.btnUpTwo.UseVisualStyleBackColor = false;
             this.btnUpTwo.Value = Jamb.Value.Two;
             this.btnUpTwo.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpTwo.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnUpOne
             // 
+            this.btnUpOne.BackColor = System.Drawing.Color.Gray;
             this.btnUpOne.Category = Jamb.Category.Numbers;
             this.btnUpOne.Direction = Jamb.Direction.Up;
-            this.btnUpOne.Enabled = false;
             this.btnUpOne.Location = new System.Drawing.Point(168, 40);
             this.btnUpOne.Name = "btnUpOne";
+            this.btnUpOne.Open = false;
             this.btnUpOne.Points = 0;
             this.btnUpOne.Size = new System.Drawing.Size(65, 29);
             this.btnUpOne.TabIndex = 14;
-            this.btnUpOne.UseVisualStyleBackColor = true;
+            this.btnUpOne.UseVisualStyleBackColor = false;
             this.btnUpOne.Value = Jamb.Value.One;
             this.btnUpOne.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnUpOne.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownMin
             // 
+            this.btnDownMin.BackColor = System.Drawing.Color.Gray;
             this.btnDownMin.Category = Jamb.Category.MinMax;
             this.btnDownMin.Direction = Jamb.Direction.Down;
-            this.btnDownMin.Enabled = false;
             this.btnDownMin.Location = new System.Drawing.Point(97, 305);
             this.btnDownMin.Name = "btnDownMin";
+            this.btnDownMin.Open = false;
             this.btnDownMin.Points = 0;
             this.btnDownMin.Size = new System.Drawing.Size(65, 29);
             this.btnDownMin.TabIndex = 13;
-            this.btnDownMin.UseVisualStyleBackColor = true;
+            this.btnDownMin.UseVisualStyleBackColor = false;
             this.btnDownMin.Value = Jamb.Value.Min;
             this.btnDownMin.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownMin.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownMax
             // 
+            this.btnDownMax.BackColor = System.Drawing.Color.Gray;
             this.btnDownMax.Category = Jamb.Category.MinMax;
             this.btnDownMax.Direction = Jamb.Direction.Down;
-            this.btnDownMax.Enabled = false;
             this.btnDownMax.Location = new System.Drawing.Point(97, 270);
             this.btnDownMax.Name = "btnDownMax";
+            this.btnDownMax.Open = false;
             this.btnDownMax.Points = 0;
             this.btnDownMax.Size = new System.Drawing.Size(65, 29);
             this.btnDownMax.TabIndex = 12;
-            this.btnDownMax.UseVisualStyleBackColor = true;
+            this.btnDownMax.UseVisualStyleBackColor = false;
             this.btnDownMax.Value = Jamb.Value.Max;
             this.btnDownMax.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownMax.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownYamb
             // 
+            this.btnDownYamb.BackColor = System.Drawing.Color.Gray;
             this.btnDownYamb.Category = Jamb.Category.Hands;
             this.btnDownYamb.Direction = Jamb.Direction.Down;
-            this.btnDownYamb.Enabled = false;
             this.btnDownYamb.Location = new System.Drawing.Point(96, 507);
             this.btnDownYamb.Name = "btnDownYamb";
+            this.btnDownYamb.Open = false;
             this.btnDownYamb.Points = 0;
             this.btnDownYamb.Size = new System.Drawing.Size(65, 29);
             this.btnDownYamb.TabIndex = 10;
-            this.btnDownYamb.UseVisualStyleBackColor = true;
+            this.btnDownYamb.UseVisualStyleBackColor = false;
             this.btnDownYamb.Value = Jamb.Value.Yamb;
             this.btnDownYamb.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownYamb.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownPoker
             // 
+            this.btnDownPoker.BackColor = System.Drawing.Color.Gray;
             this.btnDownPoker.Category = Jamb.Category.Hands;
             this.btnDownPoker.Direction = Jamb.Direction.Down;
-            this.btnDownPoker.Enabled = false;
             this.btnDownPoker.Location = new System.Drawing.Point(96, 472);
             this.btnDownPoker.Name = "btnDownPoker";
+            this.btnDownPoker.Open = false;
             this.btnDownPoker.Points = 0;
             this.btnDownPoker.Size = new System.Drawing.Size(65, 29);
             this.btnDownPoker.TabIndex = 9;
-            this.btnDownPoker.UseVisualStyleBackColor = true;
+            this.btnDownPoker.UseVisualStyleBackColor = false;
             this.btnDownPoker.Value = Jamb.Value.Poker;
             this.btnDownPoker.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownPoker.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownFull
             // 
+            this.btnDownFull.BackColor = System.Drawing.Color.Gray;
             this.btnDownFull.Category = Jamb.Category.Hands;
             this.btnDownFull.Direction = Jamb.Direction.Down;
-            this.btnDownFull.Enabled = false;
             this.btnDownFull.Location = new System.Drawing.Point(96, 437);
             this.btnDownFull.Name = "btnDownFull";
+            this.btnDownFull.Open = false;
             this.btnDownFull.Points = 0;
             this.btnDownFull.Size = new System.Drawing.Size(65, 29);
             this.btnDownFull.TabIndex = 8;
-            this.btnDownFull.UseVisualStyleBackColor = true;
+            this.btnDownFull.UseVisualStyleBackColor = false;
             this.btnDownFull.Value = Jamb.Value.Full;
             this.btnDownFull.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownFull.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownStraight
             // 
+            this.btnDownStraight.BackColor = System.Drawing.Color.Gray;
             this.btnDownStraight.Category = Jamb.Category.Hands;
             this.btnDownStraight.Direction = Jamb.Direction.Down;
-            this.btnDownStraight.Enabled = false;
             this.btnDownStraight.Location = new System.Drawing.Point(96, 402);
             this.btnDownStraight.Name = "btnDownStraight";
+            this.btnDownStraight.Open = false;
             this.btnDownStraight.Points = 0;
             this.btnDownStraight.Size = new System.Drawing.Size(65, 29);
             this.btnDownStraight.TabIndex = 7;
-            this.btnDownStraight.UseVisualStyleBackColor = true;
+            this.btnDownStraight.UseVisualStyleBackColor = false;
             this.btnDownStraight.Value = Jamb.Value.Straight;
             this.btnDownStraight.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownStraight.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownPairs
             // 
+            this.btnDownPairs.BackColor = System.Drawing.Color.Gray;
             this.btnDownPairs.Category = Jamb.Category.Hands;
             this.btnDownPairs.Direction = Jamb.Direction.Down;
-            this.btnDownPairs.Enabled = false;
             this.btnDownPairs.Location = new System.Drawing.Point(96, 367);
             this.btnDownPairs.Name = "btnDownPairs";
+            this.btnDownPairs.Open = false;
             this.btnDownPairs.Points = 0;
             this.btnDownPairs.Size = new System.Drawing.Size(65, 29);
             this.btnDownPairs.TabIndex = 6;
-            this.btnDownPairs.UseVisualStyleBackColor = true;
+            this.btnDownPairs.UseVisualStyleBackColor = false;
             this.btnDownPairs.Value = Jamb.Value.Pair;
             this.btnDownPairs.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownPairs.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownSix
             // 
+            this.btnDownSix.BackColor = System.Drawing.Color.Gray;
             this.btnDownSix.Category = Jamb.Category.Numbers;
             this.btnDownSix.Direction = Jamb.Direction.Down;
-            this.btnDownSix.Enabled = false;
             this.btnDownSix.Location = new System.Drawing.Point(97, 215);
             this.btnDownSix.Name = "btnDownSix";
+            this.btnDownSix.Open = false;
             this.btnDownSix.Points = 0;
             this.btnDownSix.Size = new System.Drawing.Size(65, 29);
             this.btnDownSix.TabIndex = 5;
-            this.btnDownSix.UseVisualStyleBackColor = true;
+            this.btnDownSix.UseVisualStyleBackColor = false;
             this.btnDownSix.Value = Jamb.Value.Six;
             this.btnDownSix.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownSix.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownFive
             // 
+            this.btnDownFive.BackColor = System.Drawing.Color.Gray;
             this.btnDownFive.Category = Jamb.Category.Numbers;
             this.btnDownFive.Direction = Jamb.Direction.Down;
-            this.btnDownFive.Enabled = false;
             this.btnDownFive.Location = new System.Drawing.Point(97, 180);
             this.btnDownFive.Name = "btnDownFive";
+            this.btnDownFive.Open = false;
             this.btnDownFive.Points = 0;
             this.btnDownFive.Size = new System.Drawing.Size(65, 29);
             this.btnDownFive.TabIndex = 4;
-            this.btnDownFive.UseVisualStyleBackColor = true;
+            this.btnDownFive.UseVisualStyleBackColor = false;
             this.btnDownFive.Value = Jamb.Value.Five;
             this.btnDownFive.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownFive.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownFour
             // 
+            this.btnDownFour.BackColor = System.Drawing.Color.Gray;
             this.btnDownFour.Category = Jamb.Category.Numbers;
             this.btnDownFour.Direction = Jamb.Direction.Down;
-            this.btnDownFour.Enabled = false;
             this.btnDownFour.Location = new System.Drawing.Point(97, 145);
             this.btnDownFour.Name = "btnDownFour";
+            this.btnDownFour.Open = false;
             this.btnDownFour.Points = 0;
             this.btnDownFour.Size = new System.Drawing.Size(65, 29);
             this.btnDownFour.TabIndex = 3;
-            this.btnDownFour.UseVisualStyleBackColor = true;
+            this.btnDownFour.UseVisualStyleBackColor = false;
             this.btnDownFour.Value = Jamb.Value.Four;
             this.btnDownFour.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownFour.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownThree
             // 
+            this.btnDownThree.BackColor = System.Drawing.Color.Gray;
             this.btnDownThree.Category = Jamb.Category.Numbers;
             this.btnDownThree.Direction = Jamb.Direction.Down;
-            this.btnDownThree.Enabled = false;
             this.btnDownThree.Location = new System.Drawing.Point(97, 110);
             this.btnDownThree.Name = "btnDownThree";
+            this.btnDownThree.Open = false;
             this.btnDownThree.Points = 0;
             this.btnDownThree.Size = new System.Drawing.Size(65, 29);
             this.btnDownThree.TabIndex = 2;
-            this.btnDownThree.UseVisualStyleBackColor = true;
+            this.btnDownThree.UseVisualStyleBackColor = false;
             this.btnDownThree.Value = Jamb.Value.Three;
             this.btnDownThree.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownThree.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownTwo
             // 
+            this.btnDownTwo.BackColor = System.Drawing.Color.Gray;
             this.btnDownTwo.Category = Jamb.Category.Numbers;
             this.btnDownTwo.Direction = Jamb.Direction.Down;
-            this.btnDownTwo.Enabled = false;
             this.btnDownTwo.Location = new System.Drawing.Point(97, 75);
             this.btnDownTwo.Name = "btnDownTwo";
+            this.btnDownTwo.Open = false;
             this.btnDownTwo.Points = 0;
             this.btnDownTwo.Size = new System.Drawing.Size(65, 29);
             this.btnDownTwo.TabIndex = 1;
-            this.btnDownTwo.UseVisualStyleBackColor = true;
+            this.btnDownTwo.UseVisualStyleBackColor = false;
             this.btnDownTwo.Value = Jamb.Value.Two;
             this.btnDownTwo.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownTwo.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // btnDownOne
             // 
+            this.btnDownOne.BackColor = System.Drawing.Color.LightGray;
             this.btnDownOne.Category = Jamb.Category.Numbers;
             this.btnDownOne.Direction = Jamb.Direction.Down;
             this.btnDownOne.Location = new System.Drawing.Point(97, 40);
             this.btnDownOne.Name = "btnDownOne";
+            this.btnDownOne.Open = true;
             this.btnDownOne.Points = 0;
             this.btnDownOne.Size = new System.Drawing.Size(65, 29);
             this.btnDownOne.TabIndex = 0;
-            this.btnDownOne.UseVisualStyleBackColor = true;
+            this.btnDownOne.UseVisualStyleBackColor = false;
             this.btnDownOne.Value = Jamb.Value.One;
             this.btnDownOne.OnPointChanged += new Jamb.BoxButton.PointDelegate(this.OnBoxPointsChanged);
+            this.btnDownOne.OnBoxHover += new Jamb.BoxButton.HistoryDelegate(this.OnHover);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 589);
+            this.Controls.Add(this.historyStatus);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.labelSum9);
             this.Controls.Add(this.labelSum10);
@@ -1327,7 +1468,9 @@
             this.Controls.Add(this.btnDownTwo);
             this.Controls.Add(this.btnDownOne);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "Jamb";
+            this.historyStatus.ResumeLayout(false);
+            this.historyStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1424,6 +1567,8 @@
         private SumLabel labelSum11;
         private SumLabel labelSum12;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.StatusStrip historyStatus;
+        private System.Windows.Forms.ToolStripStatusLabel historyStatusLabel;
     }
 }
 

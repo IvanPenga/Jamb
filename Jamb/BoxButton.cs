@@ -12,10 +12,12 @@ namespace Jamb
 {
     public partial class BoxButton : Button
     {
-        public static List<BoxButton> Boxes = new List<BoxButton>();
+        private static List<BoxButton> Boxes = new List<BoxButton>();
+        private List<int> History = new List<int>();
 
-        public static List<BoxButton> NonCallBox = new List<BoxButton>();
-        public int MaxSizeNonCallBox = 39; // 3 * 13 (Up,Down,Free * numbers,min-max,hands)
+        private static List<BoxButton> NonCallBox = new List<BoxButton>();
+        private int MaxSizeNonCallBox = 39; // 3 * 13 (Up,Down,Free * numbers,min-max,hands)
+        private static List<BoxButton> TemporaryClosed = new List<BoxButton>();
 
         public Value Value { get; set; }
         public Direction Direction { get; set; }
@@ -24,14 +26,17 @@ namespace Jamb
         public int Points { get; set; }
 
         public bool Checked = false;
+        public bool Open { get; set; }
+
         private static bool CallsEnabled = false;
 
         public delegate void SimpleDelegate();
+        public delegate void HistoryDelegate(Direction direction, Value value, List<int> history);
         public delegate void PointDelegate(BoxButton box);
         public event SimpleDelegate OnCallSelected;
         public static event SimpleDelegate OnOnlyCallsLeft;
         public event PointDelegate OnPointChanged;
-        
+        public event HistoryDelegate OnBoxHover;
 
         public BoxButton()
         {
@@ -43,46 +48,68 @@ namespace Jamb
         {
             base.OnPaint(pe);
         }
-
         
         private void EnableSelectedCall()
         {
             foreach (BoxButton box in Boxes.Where(box => box.Direction == Direction.Call))
             {
-                box.Enabled = false;
+                box.ChangeBoxState(false);
             }
-            this.Enabled = true;
+            ChangeBoxState(true);
             OnCallSelected?.Invoke();
         }
 
         private void Box_Click(object sender, EventArgs e)
         {
-            if (CallsEnabled)
+            if (Open)
             {
-                EnableSelectedCall();
-                CallsEnabled = false;
-                this.Box_MouseEnter(sender,e);
+                if (CallsEnabled)
+                {
+                    EnableSelectedCall();
+                    CallsEnabled = false;
+                    this.Box_MouseEnter(sender, e);
+                }
+                else
+                {
+                    this.Click -= Box_Click;
+                    RestoreTemporaryClosedBoxes();
+                    CheckIfOnlyCallsLeft();
+                    DisableBox();
+                    SetHistory();
+                    UnlockNext();
+                    SetPoints();
+                }
             }
-            else
+
+        }
+
+        private void SetHistory()
+        {
+            History = DiceButton.Dices.Select(d => d.Number).ToList();
+        }
+
+        private void DisableBox()
+        {
+            Checked = true;
+        }
+
+        private void CheckIfOnlyCallsLeft()
+        {
+            if (this.Direction != Direction.Call)
             {
-                if (tempClosed.Count > 0)
+                NonCallBox.Add(this);
+                if (NonCallBox.Count >= MaxSizeNonCallBox)
                 {
-                    ReturnTempClosed();
+                    OnOnlyCallsLeft?.Invoke();
                 }
-                if (this.Direction != Direction.Call)
-                {
-                    NonCallBox.Add(this);
-                    if (NonCallBox.Count >= 39)
-                    {
-                        OnOnlyCallsLeft?.Invoke();
-                    }
-                }
-                this.Enabled = false;
-                Checked = true;
-                Game.NextRound();              
-                SetPoints();
-                OnPointChanged?.Invoke(this);
-                UnlockNext();
+            }
+        }
+
+        private void RestoreTemporaryClosedBoxes()
+        {
+            if (TemporaryClosed.Count > 0)
+            {
+                ReturnTempClosed();
             }
         }
 
@@ -92,20 +119,21 @@ namespace Jamb
             {
                 Points = int.Parse(this.Text);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 Points = Rules.EvaluateBoxValue(this.Value);
             }
             this.Text = Points.ToString();
+            OnPointChanged?.Invoke(this);
         }
 
 
-        public void Unlock()
+        private void Unlock()
         {
-            this.Enabled = true;
+            ChangeBoxState(true);
         }
 
-        public void UnlockNext()
+        private void UnlockNext()
         {
             foreach (BoxButton box in Boxes)
             {
@@ -122,26 +150,40 @@ namespace Jamb
             }
         }
 
+
         public static void DisableCalls()
         {
             CallsEnabled = false;
             ReturnTempClosed();
         }
 
+        private void ChangeBoxState(bool isOpen)
+        {
+            if (isOpen)
+            {
+                this.Open = true;
+                this.BackColor = Color.LightGray;
+            }
+            else
+            {
+                this.Open = false;
+                this.BackColor = Color.Gray;
+            }
+        }
+
         private static void ReturnTempClosed()
         {
             foreach (BoxButton box in Boxes.Where(box => box.Direction == Direction.Call))
             {
-                box.Enabled = false;
+                box.ChangeBoxState(false); 
             }
-            foreach (BoxButton box in tempClosed)
+            foreach (BoxButton box in TemporaryClosed)
             {
-                box.Enabled = true;
+                box.ChangeBoxState(true);
             }
-            tempClosed.Clear();
+            TemporaryClosed.Clear();
         }
 
-        private static List<BoxButton> tempClosed = new List<BoxButton>();
 
         public static void EnableCalls()
         {
@@ -149,12 +191,12 @@ namespace Jamb
             {
                 if (box.Direction == Direction.Call && box.Checked == false)
                 {
-                    box.Enabled = true;
+                    box.ChangeBoxState(true);
                 }
-                else if (box.Enabled == true)
+                else if (box.Open == true)
                 {
-                    tempClosed.Add(box);
-                    box.Enabled = false;
+                    TemporaryClosed.Add(box);
+                    box.ChangeBoxState(false);
                 }
             }
             CallsEnabled = true;
@@ -162,16 +204,28 @@ namespace Jamb
 
         private void Box_MouseEnter(object sender, EventArgs e)
         {
-            if (this.Enabled && !CallsEnabled)
+            if (!Checked && !CallsEnabled && Open)
             {
                 Points = Rules.EvaluateBoxValue(this.Value);
                 this.Text = Points.ToString();
+            }
+            else if (this.Checked)
+            {
+                InvokeHistory();
+            }
+        }
+
+        private void InvokeHistory()
+        {
+            if (this.History.Count > 0)
+            {
+                OnBoxHover?.Invoke(this.Direction,this.Value,this.History);
             }
         }
 
         private void Box_MouseLeave(object sender, EventArgs e)
         {
-            if (this.Enabled)
+            if (!Checked)
             {
                 this.Text = "";
             }            

@@ -129,9 +129,18 @@ namespace Jamb
                 }
 
             }
+            Game.NextRound();
             lblTotal.Text = "Total: " + SumLabel.Total.ToString();
 
         }
 
+        private void OnHover(Direction d, Value v, List<int> history)
+        {
+            historyStatusLabel.Text = "History for " + d + " " + v + ": " ;
+            foreach (int number in history)
+            {
+                historyStatusLabel.Text += " " + number + " ";
+            }
+        }
     }
 }
