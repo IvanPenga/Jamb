@@ -134,20 +134,23 @@ namespace Jamb
         }
 
         private void UnlockNext()
-        {
-            foreach (BoxButton box in Boxes)
+        {            
+            if (this.Direction == Direction.Down || this.Direction == Direction.Up)
             {
-                if (this.Direction == Direction.Down && box.Direction == Direction.Down && box.Value == Value + 1)
+                foreach (BoxButton box in Boxes.Where(box => box.Direction == Direction.Up || box.Direction == Direction.Down))
                 {
-                    box.Unlock();
-                    break;
+                    if (this.Direction == Direction.Down && box.Direction == Direction.Down && box.Value == Value + 1)
+                    {
+                        box.Unlock();
+                        break;
+                    }
+                    else if (this.Direction == Direction.Up && box.Direction == Direction.Up && box.Value == Value - 1)
+                    {
+                        box.Unlock();
+                        break;
+                    }
                 }
-                else if (box.Direction == Direction.Up && this.Direction == Direction.Up && box.Value == Value - 1)
-                {
-                    box.Unlock();
-                    break;
-                }
-            }
+            } 
         }
 
 

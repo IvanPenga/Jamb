@@ -101,7 +101,6 @@ namespace Jamb
 
         private void OnBoxPointsChanged(BoxButton box)
         {
-
             foreach (SumLabel sumLabel in this.Controls.OfType<SumLabel>())
             {
                 
@@ -124,14 +123,12 @@ namespace Jamb
                     if (sumLabel.Direction == box.Direction)
                     {
                         sumLabel.AddToValue(box.Points);
-                        return;
+                        break;
                     }
                 }
-
             }
-            Game.NextRound();
             lblTotal.Text = "Total: " + SumLabel.Total.ToString();
-
+            Game.NextRound();
         }
 
         private void OnHover(Direction d, Value v, List<int> history)
